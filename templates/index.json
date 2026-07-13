@@ -18,7 +18,7 @@
         "subtext": "Discover trending hair care, skin care, and beauty tools selected to upgrade your daily routine.",
         "btn1_label": "Shop Now",
         "btn1_link": "shopify://collections/all",
-        "btn2_label": "View Collections",
+        "btn2_label": "",
         "btn2_link": "shopify://collections",
         "image_url": "",
         "image_radius": 28,
@@ -154,7 +154,7 @@
       ],
       "name": "ZB — Product Hero",
       "settings": {
-        "product": "tattoo-brow",
+        "product": "7-color-light-facial-mask-therapy",
         "custom_image": "shopify://shop_images/1773746679_php8c8i2et13ttqfUuBkSR.jpg",
         "eyebrow": "Staff Pick",
         "headline": "7-Color LED Face Mask",
