@@ -1,0 +1,219 @@
+<div class="zb-section-outer">
+<section class="zb-collection" id="zb-collection-{{ section.id }}">
+
+  {%- if section.settings.label != blank -%}
+    <div class="zb-collection__eyebrow">
+      <span class="zb-eyebrow-pill">{{ section.settings.label }}</span>
+    </div>
+  {%- endif -%}
+
+  <div class="zb-collection__header">
+    <div class="zb-collection__header-left">
+      {%- if section.settings.title != blank -%}
+        <h2 class="zb-collection__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="zb-collection__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.collection != blank -%}
+      <a href="{{ collections[section.settings.collection].url }}" class="zb-btn-outline">
+        View All <span aria-hidden="true">→</span>
+      </a>
+    {%- endif -%}
+  </div>
+
+  {%- assign col = collections[section.settings.collection] -%}
+  {%- assign product_limit = section.settings.products_to_show | default: 4 -%}
+
+  {%- if col != blank -%}
+    <div class="zb-grid" style="--cols: {{ section.settings.columns | default: 4 }}">
+      {%- for product in col.products limit: product_limit -%}
+
+        {%- assign has_discount = false -%}
+        {%- if product.compare_at_price > product.price -%}
+          {%- assign has_discount = true -%}
+          {%- assign savings = product.compare_at_price | minus: product.price -%}
+          {%- assign discount_pct = savings | times: 100 | divided_by: product.compare_at_price -%}
+        {%- endif -%}
+
+        <div class="zb-card" data-product-id="{{ product.id }}">
+          <a href="{{ product.url }}" class="zb-card__image-wrap" aria-label="{{ product.title }}">
+            {%- if has_discount -%}
+              <span class="zb-badge">-{{ discount_pct }}%</span>
+            {%- elsif product.available == false -%}
+              <span class="zb-badge zb-badge--sold">Sold out</span>
+            {%- elsif product.tags contains 'new' -%}
+              <span class="zb-badge zb-badge--new">New</span>
+            {%- endif -%}
+            {%- if product.featured_image -%}
+              <img class="zb-card__img zb-card__img--primary" src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | escape }}" width="600" height="600" loading="lazy">
+              {%- if product.images[1] -%}
+                <img class="zb-card__img zb-card__img--hover" src="{{ product.images[1] | image_url: width: 600 }}" alt="{{ product.images[1].alt | escape }}" width="600" height="600" loading="lazy">
+              {%- endif -%}
+            {%- else -%}
+              <div class="zb-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+            {%- endif -%}
+            <div class="zb-card__overlay">
+              <button class="zb-card__atc" data-product-id="{{ product.id }}" data-variant-id="{{ product.first_available_variant.id }}" aria-label="Add {{ product.title }} to cart" {%- unless product.available %} disabled{%- endunless -%}>
+                {%- if product.available -%}Add to Cart →{%- else -%}Sold Out{%- endif -%}
+              </button>
+            </div>
+          </a>
+          <div class="zb-card__body">
+            {%- assign colour_option = nil -%}
+            {%- for option in product.options_with_values -%}
+              {%- if option.name == 'Color' or option.name == 'Colour' or option.name == 'Shade' -%}
+                {%- assign colour_option = option -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if colour_option != nil and colour_option.values.size > 1 -%}
+              <div class="zb-swatches">
+                {%- for val in colour_option.values limit: 5 -%}
+                  <span class="zb-swatch" title="{{ val }}" style="background-color: {{ val | downcase | replace: ' ', '' }};"></span>
+                {%- endfor -%}
+                {%- if colour_option.values.size > 5 -%}<span class="zb-swatch-more">+{{ colour_option.values.size | minus: 5 }}</span>{%- endif -%}
+              </div>
+            {%- else -%}
+              <div class="zb-swatches zb-swatches--empty"></div>
+            {%- endif -%}
+            <a href="{{ product.url }}" class="zb-card__title">{{ product.title }}</a>
+            <div class="zb-card__pricing">
+              <span class="zb-price">{{ product.price | money }}</span>
+              {%- if has_discount -%}<span class="zb-price-compare">{{ product.compare_at_price | money }}</span>{%- endif -%}
+            </div>
+          </div>
+        </div>
+
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_view_all and col.products_count > product_limit -%}
+      <div class="zb-collection__footer">
+        <a href="{{ col.url }}" class="zb-btn-primary">View All {{ section.settings.title }} →</a>
+      </div>
+    {%- endif -%}
+
+  {%- else -%}
+    <p class="zb-empty">Please select a collection in section settings.</p>
+  {%- endif -%}
+
+</section>
+</div>
+
+<style>
+:root {
+  --zb-maroon: #6B1A2A; --zb-maroon-dark: #4A1020;
+  --zb-cream: #FAF7F4; --zb-text: #1A1A1A; --zb-text-muted: #6B6B6B;
+  --zb-border: #E8E0DA; --zb-white: #FFFFFF;
+  --zb-radius: 14px; --zb-radius-sm: 8px;
+  --zb-transition: 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  --zb-shadow: 0 2px 16px rgba(107,26,42,0.08);
+  --zb-shadow-hover: 0 8px 32px rgba(107,26,42,0.16);
+}
+
+/* Outer page padding */
+.zb-section-outer { max-width: 1320px; margin: 0 auto 40px; padding: 0 20px; }
+
+/* Bordered section container */
+.zb-section-outer .zb-collection {
+  background: var(--zb-white);
+  border: 1.5px solid #D4A9B0;
+  border-radius: 28px;
+  padding: 48px 40px 52px;
+  box-shadow: 0 4px 32px rgba(107,26,42,0.06);
+  max-width: 100%; margin: 0;
+}
+@media (max-width: 768px) {
+  .zb-section-outer { padding: 0 12px; }
+  .zb-section-outer .zb-collection { padding: 32px 20px 36px; border-radius: 20px; }
+}
+@media (max-width: 480px) {
+  .zb-section-outer .zb-collection { padding: 24px 16px 28px; border-radius: 16px; }
+}
+
+.zb-collection__eyebrow { text-align: center; margin-bottom: 14px; }
+.zb-eyebrow-pill { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--zb-maroon); background: rgba(107,26,42,0.08); padding: 5px 14px; border-radius: 100px; }
+.zb-collection__header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+.zb-collection__title { font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--zb-text); margin: 0 0 6px; line-height: 1.15; letter-spacing: -0.02em; }
+.zb-collection__subtitle { font-size: 14px; color: var(--zb-text-muted); margin: 0; max-width: 420px; line-height: 1.55; }
+.zb-btn-outline { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--zb-maroon); border: 1.5px solid var(--zb-maroon); padding: 8px 18px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background var(--zb-transition), color var(--zb-transition); flex-shrink: 0; }
+.zb-btn-outline:hover { background: var(--zb-maroon); color: var(--zb-white); }
+.zb-grid { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 20px; }
+@media (max-width: 900px) { .zb-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+@media (max-width: 480px) { .zb-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+
+.zb-card { background: var(--zb-white); border-radius: var(--zb-radius); border: 1px solid #EDE4DF; overflow: hidden; box-shadow: var(--zb-shadow); transition: box-shadow var(--zb-transition), transform var(--zb-transition), border-color var(--zb-transition); display: flex; flex-direction: column; }
+.zb-card:hover { box-shadow: var(--zb-shadow-hover); transform: translateY(-3px); border-color: #D4A9B0; }
+.zb-card__image-wrap { position: relative; display: block; aspect-ratio: 1/1; overflow: hidden; background: #F5F0ED; text-decoration: none; }
+.zb-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity var(--zb-transition), transform var(--zb-transition); }
+.zb-card__img--primary { opacity: 1; transform: scale(1); z-index: 1; }
+.zb-card__img--hover { opacity: 0; transform: scale(1.04); z-index: 2; }
+.zb-card:hover .zb-card__img--primary { opacity: 0; transform: scale(1.04); }
+.zb-card:hover .zb-card__img--hover { opacity: 1; transform: scale(1); }
+.zb-badge { position: absolute; top: 12px; left: 12px; z-index: 5; background: var(--zb-maroon); color: var(--zb-white); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 100px; }
+.zb-badge--sold { background: #333; } .zb-badge--new { background: #2A6B3A; }
+.zb-card__overlay { position: absolute; inset: 0; z-index: 10; display: flex; align-items: flex-end; padding: 16px; background: linear-gradient(to top, rgba(26,10,15,0.55) 0%, transparent 55%); opacity: 0; transition: opacity var(--zb-transition); }
+.zb-card:hover .zb-card__overlay { opacity: 1; }
+.zb-card__atc { width: 100%; background: var(--zb-maroon); color: var(--zb-white); border: none; border-radius: var(--zb-radius-sm); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 12px 16px; cursor: pointer; transition: background var(--zb-transition), transform 0.12s; transform: translateY(6px); }
+.zb-card:hover .zb-card__atc { transform: translateY(0); }
+.zb-card__atc:hover { background: var(--zb-maroon-dark); }
+.zb-card__atc:active { transform: scale(0.97); }
+.zb-card__atc:disabled { background: #999; cursor: not-allowed; }
+.zb-card__body { padding: 14px 16px 18px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.zb-swatches { display: flex; align-items: center; gap: 5px; min-height: 18px; }
+.zb-swatches--empty { min-height: 18px; }
+.zb-swatch { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--zb-border); display: inline-block; cursor: pointer; transition: transform 0.15s, border-color 0.15s; }
+.zb-swatch:hover { transform: scale(1.2); border-color: var(--zb-maroon); }
+.zb-swatch-more { font-size: 11px; color: var(--zb-text-muted); margin-left: 2px; }
+.zb-card__title { font-size: 14px; font-weight: 600; color: var(--zb-text); text-decoration: none; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.zb-card__title:hover { color: var(--zb-maroon); }
+.zb-card__pricing { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.zb-price { font-size: 15px; font-weight: 700; color: var(--zb-text); }
+.zb-price-compare { font-size: 13px; color: var(--zb-text-muted); text-decoration: line-through; }
+.zb-collection__footer { text-align: center; margin-top: 40px; }
+.zb-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--zb-maroon); color: var(--zb-white); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; padding: 14px 32px; border-radius: 100px; text-decoration: none; transition: background var(--zb-transition), transform 0.12s; }
+.zb-btn-primary:hover { background: var(--zb-maroon-dark); transform: translateY(-1px); }
+.zb-empty { text-align: center; color: var(--zb-text-muted); font-size: 14px; padding: 40px; }
+.zb-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #F0EBE8; }
+.zb-card__placeholder svg { width: 60%; height: 60%; opacity: 0.3; }
+</style>
+
+<script>
+(function () {
+  document.querySelectorAll('#zb-collection-{{ section.id }} .zb-card__atc').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var variantId = btn.dataset.variantId;
+      if (!variantId) return;
+      btn.textContent = 'Adding…'; btn.disabled = true;
+      fetch('/cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: variantId, quantity: 1 }) })
+      .then(function (r) { return r.json(); })
+      .then(function () {
+        btn.textContent = '✓ Added!';
+        document.dispatchEvent(new CustomEvent('cart:refresh'));
+        setTimeout(function () { btn.textContent = 'Add to Cart →'; btn.disabled = false; }, 2000);
+      })
+      .catch(function () { btn.textContent = 'Error — try again'; btn.disabled = false; });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZB — Featured Collection",
+  "tag": "section",
+  "class": "zb-featured-collection-section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Eyebrow label", "default": "Makeup & Beauty" },
+    { "type": "text", "id": "title", "label": "Section title", "default": "Makeup & Beauty" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Curated essentials to enhance your everyday look." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Number of products", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "select", "id": "columns", "label": "Columns (desktop)", "options": [{ "value": "2", "label": "2" }, { "value": "3", "label": "3" }, { "value": "4", "label": "4" }], "default": "4" },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show 'View All' button", "default": true }
+  ],
+  "presets": [{ "name": "ZB — Featured Collection", "category": "Zeid Beauty" }]
+}
+{% endschema %}

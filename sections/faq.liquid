@@ -1,0 +1,391 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="section--padding{% if section.settings.show_divider %} section--divider{% endif %}">
+  {%- if section.settings.secondary_background -%}
+    <div class="faq--colored">
+  {%- endif -%}
+    <div class="faq page-width{% if section.settings.narrow %} page-width--inner{% endif %}">
+
+      <div class="title-wrapper{% if section.settings.heading == blank %} title-wrapper--no-heading{% endif %} {{ section.settings.heading_alignment }}">
+        <{{ section.settings.heading_tag }} class="zb-faq-heading title {{ section.settings.heading_size }}">
+          {{ section.settings.heading | escape }}
+        </{{ section.settings.heading_tag }}>
+      </div>
+
+      <div class="zb-faq-list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'rich-text' -%}
+              <p class="h3" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</p>
+              <div class="rte">{{ block.settings.text }}</div>
+
+            {%- when 'question' -%}
+              {%- if block.settings.text != blank -%}
+                <accordion-tab class="zb-accordion-tab" {{ block.shopify_attributes }}>
+                  <details class="zb-faq-item">
+                    <summary class="zb-faq-summary">
+                      <span class="zb-faq-question">{{ block.settings.title | escape }}</span>
+                      <div class="zb-faq-icon" aria-hidden="true">
+                        <svg class="zb-icon-plus" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                        <svg class="zb-icon-minus" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                    </summary>
+                    <div class="zb-faq-answer accordion__content rte typeset">
+                      {{ block.settings.text }}
+                    </div>
+                  </details>
+                </accordion-tab>
+              {%- endif -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  {%- if section.settings.secondary_background -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+/* ============================================================
+   ZEID BEAUTY — FAQ Section
+   ============================================================ */
+/* ---- Constrain width ---- */
+.faq.page-width {
+  max-width: 1400px !important;
+  /*margin-left: auto !important;
+  margin-right: auto !important;*/
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* ---- Heading ---- */
+.zb-faq-heading {
+  font-size: clamp(22px, 3vw, 32px) !important;
+  font-weight: 700 !important;
+  color: #1A1A1A !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 28px !important;
+  text-transform: none !important;
+}
+
+/* ---- List wrapper ---- */
+.zb-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 860px;
+}
+
+/* ---- Each accordion item ---- */
+.zb-faq-item {
+  background: #fff;
+  border: 1.5px solid #EDE4DF !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(107, 26, 42, 0.04);
+  transition: border-color 0.22s, box-shadow 0.22s;
+  margin: 0 !important;
+}
+.zb-faq-item[open] {
+  border-color: #D4A9B0 !important;
+  box-shadow: 0 3px 18px rgba(107, 26, 42, 0.09);
+}
+
+/* ---- Summary row ---- */
+.zb-faq-summary {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px !important;
+  cursor: pointer;
+  list-style: none !important;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  width: 100%;
+}
+.zb-faq-summary::-webkit-details-marker { display: none !important; }
+.zb-faq-summary::marker { display: none !important; }
+
+/* ---- Question text ---- */
+.zb-faq-question {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #1A1A1A !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.4;
+  flex: 1;
+  transition: color 0.18s;
+}
+.zb-faq-item[open] .zb-faq-question {
+  color: #6B1A2A !important;
+}
+
+/* ---- Icon circle ---- */
+.zb-faq-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #D4A9B0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6B1A2A;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.zb-faq-item[open] .zb-faq-icon {
+  background: #6B1A2A;
+  border-color: #6B1A2A;
+  color: #fff;
+}
+
+/* Plus/minus toggle */
+.zb-icon-minus { display: none; }
+.zb-faq-item[open] .zb-icon-plus  { display: none; }
+.zb-faq-item[open] .zb-icon-minus { display: block; }
+
+/* Hover */
+.zb-faq-summary:hover .zb-faq-question { color: #6B1A2A !important; }
+.zb-faq-summary:hover .zb-faq-icon { border-color: #6B1A2A; }
+
+/* Focus */
+.zb-faq-summary:focus { outline: none; }
+.zb-faq-summary:focus-visible { outline: 2px solid #D4A9B0; outline-offset: 2px; }
+
+/* ---- Answer ---- */
+.zb-faq-answer {
+  padding: 0 20px 18px !important;
+  border-top: 1px solid #F5EEF0;
+  margin-top: 0 !important;
+}
+.zb-faq-answer p {
+  font-size: 14px !important;
+  color: #555 !important;
+  line-height: 1.65 !important;
+  margin: 10px 0 0 !important;
+}
+.zb-faq-answer a {
+  color: #6B1A2A;
+  text-decoration: underline;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 749px) {
+  .zb-faq-summary { padding: 14px 16px !important; }
+  .zb-faq-answer  { padding: 0 16px 16px !important; }
+  .zb-faq-question { font-size: 13px !important; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "default": false,
+      "label": "t:sections.all.narrow.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "secondary_background",
+      "default": false,
+      "label": "t:sections.faq.settings.secondary_background.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "default": false,
+      "label": "t:sections.all.show_divider.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "FAQs",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.all.heading_alignment.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.heading_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_tag.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_tag.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_tag.options__3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_tag.options__4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_tag.options__5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.all.heading_tag.options__6.label"
+        },
+        {
+          "value": "div",
+          "label": "t:sections.all.heading_tag.options__7.label"
+        },
+        {
+          "value": "span",
+          "label": "t:sections.all.heading_tag.options__8.label"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.all.heading_tag.options__9.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_tag.label",
+      "info": "t:sections.all.heading_tag.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.header.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "t:sections.all.padding.padding_top.unit",
+      "label": "t:sections.all.padding.padding_top.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "t:sections.all.padding.padding_bottom.unit",
+      "label": "t:sections.all.padding.padding_bottom.label",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rich-text",
+      "name": "t:sections.faq.blocks.rich-text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Rich text",
+          "label": "t:sections.faq.blocks.rich-text.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>",
+          "label": "t:sections.faq.blocks.rich-text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "t:sections.faq.blocks.question.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Frequently asked question",
+          "label": "t:sections.faq.blocks.question.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.faq.blocks.question.settings.text.label",
+          "default": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.presets.name",
+      "blocks": [
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  }
+}
+{% endschema %}

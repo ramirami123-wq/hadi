@@ -1,0 +1,503 @@
+{% comment %}
+  Zeid Beauty — Before & After Slider (Standalone)
+  Clean slider only — no product info column
+  Perfect for product pages where info is already shown above
+  Install: Sections → Add new section → zeid-before-after-standalone → paste → Save
+  Usage: Customize → Product page → Add section → "ZB — Before & After"
+{% endcomment %}
+
+<div class="zbas-outer" id="zbas-{{ section.id }}">
+
+  {%- if section.settings.eyebrow != blank or section.settings.title != blank -%}
+    <div class="zbas-header">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="zbas-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="zbas-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="zbas-subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="zbas-slider-wrap">
+    <div class="zbas-slider" id="zbas-slider-{{ section.id }}">
+
+      <!-- AFTER — base layer, defines height via aspect-ratio -->
+      <div class="zbas-after">
+        {%- if section.settings.image_after != blank -%}
+          <img
+            src="{{ section.settings.image_after | image_url: width: 1200 }}"
+            alt="{{ section.settings.label_after | default: 'After' }}"
+            draggable="false"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="zbas-placeholder zbas-placeholder--after">
+            <span>Upload After image</span>
+          </div>
+        {%- endif -%}
+        <span class="zbas-label zbas-label--after">
+          {{ section.settings.label_after | default: 'After' }}
+        </span>
+      </div>
+
+      <!-- BEFORE — clip-path overlay, no distortion -->
+      <div class="zbas-before" id="zbas-before-{{ section.id }}">
+        {%- if section.settings.image_before != blank -%}
+          <img
+            src="{{ section.settings.image_before | image_url: width: 1200 }}"
+            alt="{{ section.settings.label_before | default: 'Before' }}"
+            draggable="false"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="zbas-placeholder zbas-placeholder--before">
+            <span>Upload Before image</span>
+          </div>
+        {%- endif -%}
+        <span class="zbas-label zbas-label--before">
+          {{ section.settings.label_before | default: 'Before' }}
+        </span>
+      </div>
+
+      <!-- White divider line -->
+      <div class="zbas-divider" id="zbas-divider-{{ section.id }}"></div>
+
+      <!-- Drag handle -->
+      <div class="zbas-handle" id="zbas-handle-{{ section.id }}">
+        <div class="zbas-handle__circle">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 10H2M6 10L4 7M6 10L4 13M14 10h4M14 10l2-3M14 10l2 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="zbas-hint">↔ Drag to compare</p>
+  </div>
+
+  {%- if section.settings.caption != blank -%}
+    <p class="zbas-caption">{{ section.settings.caption }}</p>
+  {%- endif -%}
+
+  {%- if section.settings.cta_label != blank and section.settings.cta_link != blank -%}
+    <div class="zbas-cta-wrap">
+      <a href="{{ section.settings.cta_link }}" class="zbas-cta">
+        {{ section.settings.cta_label }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  {%- endif -%}
+
+</div>
+
+<style>
+/* ============================================================
+   ZEID BEAUTY — Before & After Standalone Slider
+   ============================================================ */
+
+.zbas-outer {
+  max-width: {{ section.settings.max_width }}px;
+  margin: 0 auto 40px;
+  padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+}
+
+/* ---- Header ---- */
+.zbas-header {
+  text-align: center;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.zbas-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6B1A2A;
+  background: rgba(107, 26, 42, 0.07);
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+.zbas-title {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+.zbas-subtitle {
+  font-size: 15px;
+  color: #6B6B6B;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 500px;
+}
+
+/* ---- Slider container ---- */
+.zbas-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.zbas-slider {
+  position: relative;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid #D4A9B0;
+  box-shadow: 0 4px 28px rgba(107, 26, 42, 0.10);
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  background: #F0EBE8;
+}
+
+/* ---- AFTER — sets height via aspect-ratio ---- */
+.zbas-after {
+  position: relative;
+  width: 100%;
+  aspect-ratio: {{ section.settings.aspect_ratio }};
+}
+.zbas-after img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+
+/* ---- BEFORE — clip-path, zero distortion ---- */
+.zbas-before {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 85% 0 0);
+}
+.zbas-before img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+
+/* ---- Placeholder when no image ---- */
+.zbas-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zbas-placeholder span {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+.zbas-placeholder--after  { background: #A88890; }
+.zbas-placeholder--before { background: #C8A8B0; }
+
+/* ---- Labels ---- */
+.zbas-label {
+  position: absolute;
+  bottom: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(15, 5, 8, 0.52);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 100px;
+  z-index: 5;
+  pointer-events: none;
+}
+.zbas-label--before { left: 14px; }
+.zbas-label--after  { right: 14px; }
+
+/* ---- Divider line ---- */
+.zbas-divider {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.22);
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* ---- Handle ---- */
+.zbas-handle {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+}
+.zbas-handle__circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #6B1A2A;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 14px rgba(107, 26, 42, 0.45);
+  border: 2.5px solid #fff;
+  transition: transform 0.15s;
+}
+.zbas-slider:active .zbas-handle__circle {
+  transform: scale(1.1);
+}
+
+/* ---- Hint ---- */
+.zbas-hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ---- Caption ---- */
+.zbas-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  margin: 10px 0 0;
+}
+
+/* ---- CTA ---- */
+.zbas-cta-wrap { text-align: center; margin-top: 24px; }
+.zbas-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #6B1A2A;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.22s, transform 0.16s, gap 0.2s;
+}
+.zbas-cta:hover { background: #4A1020; transform: translateY(-2px); gap: 14px; }
+
+/* ---- Mobile ---- */
+@media (max-width: 600px) {
+  .zbas-outer { padding: 32px 14px 36px; }
+  .zbas-slider { border-radius: 16px; }
+  .zbas-handle__circle { width: 38px; height: 38px; }
+  .zbas-label { font-size: 10px; padding: 4px 10px; bottom: 12px; }
+  .zbas-cta { width: 100%; justify-content: center; }
+}
+</style>
+
+<script>
+(function () {
+  var slider  = document.getElementById('zbas-slider-{{ section.id }}');
+  var before  = document.getElementById('zbas-before-{{ section.id }}');
+  var handle  = document.getElementById('zbas-handle-{{ section.id }}');
+  var divider = document.getElementById('zbas-divider-{{ section.id }}');
+  if (!slider || !before || !handle || !divider) return;
+
+  var dragging = false;
+  var startPct = 15;
+
+  function setPos(pct) {
+    pct = Math.max(2, Math.min(98, pct));
+    before.style.clipPath  = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    handle.style.left      = pct + '%';
+    divider.style.left     = pct + '%';
+  }
+
+  function getPct(clientX) {
+    var rect = slider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  // Mouse
+  slider.addEventListener('mousedown', function (e) {
+    dragging = true;
+    setPos(getPct(e.clientX));
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', function (e) {
+    if (dragging) setPos(getPct(e.clientX));
+  });
+  window.addEventListener('mouseup', function () { dragging = false; });
+
+  // Touch
+  slider.addEventListener('touchstart', function (e) {
+    dragging = true;
+    setPos(getPct(e.touches[0].clientX));
+  }, { passive: true });
+  window.addEventListener('touchmove', function (e) {
+    if (dragging) setPos(getPct(e.touches[0].clientX));
+  }, { passive: true });
+  window.addEventListener('touchend', function () { dragging = false; });
+
+  // Init
+  setPos(startPct);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZB — Before & After",
+  "tag": "div",
+  "class": "zbas-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Real results"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Before & After"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Drag the slider to see the difference."
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_before",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_after",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "label_before",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "label_after",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption below slider (optional)",
+      "default": "Results after 7 days of daily use"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "16 / 9", "label": "Wide (16:9)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "3 / 4", "label": "Portrait (3:4)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width (px)",
+      "min": 400,
+      "max": 1200,
+      "step": 40,
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — Before & After",
+      "category": "Zeid Beauty"
+    }
+  ]
+}
+{% endschema %}

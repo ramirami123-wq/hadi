@@ -1,0 +1,175 @@
+{% comment %}
+  Zeid Beauty — Product FAQs Section
+  Reads from: product.metafields.custom.faq (JSON type)
+  Install: Sections → Add new section → zeid-product-faqs → paste → Save
+  Usage: Customize → Product page → Add section → "ZB — Product FAQs"
+         Drag it below the product information block
+{% endcomment %}
+
+{%- assign faq_data = product.metafields.custom.faq.value -%}
+
+{% if faq_data != blank %}
+<div class="zb-faqs-wrap" id="zb-faqs-{{ section.id }}">
+
+  {%- if section.settings.title != blank -%}
+    <h2 class="zb-faqs-title">{{ section.settings.title }}</h2>
+  {%- endif -%}
+
+  <div class="zb-faqs-list">
+    {%- for faq in faq_data -%}
+      <div class="zb-faq-item">
+        <button class="zb-faq-q" aria-expanded="false">
+          <span>{{ faq.q }}</span>
+          <div class="zb-faq-icon">
+            <svg class="zb-icon-plus" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <svg class="zb-icon-minus" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </button>
+        <div class="zb-faq-a">
+          <p>{{ faq.a }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+</div>
+{% endif %}
+
+<style>
+.zb-faqs-wrap {
+  padding: 32px 24px 24px;
+  border-top: 1px solid #EDE4DF;
+  margin-top: 8px;
+}
+.zb-faqs-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+
+/* ---- FAQ item ---- */
+.zb-faq-item {
+  border: 1px solid #EDE4DF;
+  border-radius: 14px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+.zb-faq-item.zb-open {
+  border-color: #D4A9B0;
+}
+
+/* ---- Question button ---- */
+.zb-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.zb-faq-q span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* ---- Icon ---- */
+.zb-faq-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #D4A9B0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6B1A2A;
+  transition: background 0.2s, border-color 0.2s;
+}
+.zb-faq-item.zb-open .zb-faq-icon {
+  background: #6B1A2A;
+  border-color: #6B1A2A;
+  color: #fff;
+}
+.zb-icon-minus { display: none; }
+.zb-faq-item.zb-open .zb-icon-plus  { display: none; }
+.zb-faq-item.zb-open .zb-icon-minus { display: block; }
+
+/* ---- Answer ---- */
+.zb-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.zb-faq-item.zb-open .zb-faq-a {
+  max-height: 400px;
+}
+.zb-faq-a p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+
+</style>
+
+<script>
+(function () {
+  var wrap = document.getElementById('zb-faqs-{{ section.id }}');
+  if (!wrap) return;
+  wrap.querySelectorAll('.zb-faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item   = btn.closest('.zb-faq-item');
+      var isOpen = item.classList.contains('zb-open');
+      // Close all
+      wrap.querySelectorAll('.zb-faq-item').forEach(function (i) {
+        i.classList.remove('zb-open');
+        i.querySelector('.zb-faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('zb-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZB — Product FAQs",
+  "tag": "div",
+  "class": "zb-faqs-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "FAQs"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — Product FAQs",
+      "category": "Zeid Beauty"
+    }
+  ]
+}
+{% endschema %}

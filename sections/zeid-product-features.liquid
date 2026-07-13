@@ -1,0 +1,83 @@
+{% if product.metafields.custom.features != blank %}
+<div class="zb-feat-wrap">
+
+  {%- if section.settings.title != blank -%}
+    <div class="zb-feat-label">{{ section.settings.title }}</div>
+  {%- endif -%}
+
+  <ul class="zb-feat-list">
+    {%- assign lines = product.metafields.custom.features.value | newline_to_br | split: '<br />' -%}
+    {%- for line in lines -%}
+      {%- assign trimmed = line | strip -%}
+      {%- if trimmed != blank -%}
+        <li>{{ trimmed }}</li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+</div>
+{% endif %}
+
+<style>
+  .zb-feat-wrap {
+    margin: 8px 0 12px;
+    padding: 16px 18px 18px;
+    background: rgba(107, 26, 42, 0.04);
+    border-left: 3px solid #6B1A2A;
+    border-radius: 0 14px 14px 0;
+  }
+  .zb-feat-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B1A2A;
+    margin-bottom: 12px;
+  }
+  .zb-feat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .zb-feat-list li {
+    font-size: 14px;
+    color: #2A2A2A;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+  .zb-feat-list li::before {
+    content: '✔';
+    color: #6B1A2A;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ZB — Product Features",
+  "tag": "div",
+  "class": "zb-features-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block heading",
+      "default": "Key Features"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — Product Features",
+      "category": "Zeid Beauty"
+    }
+  ]
+}
+{% endschema %}

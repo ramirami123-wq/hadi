@@ -1,0 +1,671 @@
+{%- assign product = product -%}
+
+<div class="zbun-outer" id="zbun-{{ section.id }}">
+
+  {%- if section.settings.title != blank -%}
+    <div class="zbun-header">
+      <span class="zbun-line"></span>
+      <span class="zbun-title">{{ section.settings.title }}</span>
+      <span class="zbun-line"></span>
+    </div>
+  {%- endif -%}
+
+  <div class="zbun-options" role="radiogroup" aria-label="Bundle options">
+
+    {%- comment %} ---- BUNDLE 1 ---- {%- endcomment -%}
+    {%- if section.settings.bundle_1_label != blank -%}
+      {%- assign b1_price = product.price -%}
+      {%- assign b1_compare = product.compare_at_price -%}
+      {%- assign b1_qty = section.settings.bundle_1_qty -%}
+      {%- assign b1_total = b1_price | times: b1_qty -%}
+      {%- assign b1_compare_total = b1_compare | times: b1_qty -%}
+
+      <div
+        class="zbun-option {% if section.settings.bundle_1_featured %}zbun-option--featured{% endif %}"
+        data-qty="{{ b1_qty }}"
+        data-variant="{{ product.selected_or_first_available_variant.id }}"
+        role="radio"
+        aria-checked="false"
+        tabindex="0"
+        id="zbun-opt-1-{{ section.id }}"
+      >
+        <div class="zbun-radio" aria-hidden="true"></div>
+        <div class="zbun-opt-content">
+          <div class="zbun-opt-left">
+            <span class="zbun-opt-label">{{ section.settings.bundle_1_label }}</span>
+            {%- if section.settings.bundle_1_tag != blank -%}
+              <span class="zbun-tag">{{ section.settings.bundle_1_tag }}</span>
+            {%- endif -%}
+          </div>
+          <div class="zbun-opt-right">
+            <span class="zbun-opt-price">{{ b1_total | money }}</span>
+            {%- if b1_compare > b1_price -%}
+              <span class="zbun-opt-compare">{{ b1_compare_total | money }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- if section.settings.bundle_1_badge != blank -%}
+          <span class="zbun-badge">{{ section.settings.bundle_1_badge }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment %} ---- BUNDLE 2 ---- {%- endcomment -%}
+    {%- if section.settings.bundle_2_label != blank -%}
+      {%- assign b2_qty = section.settings.bundle_2_qty -%}
+      {%- assign b2_total = b1_price | times: section.settings.bundle_2_pay_qty -%}
+      {%- assign b2_compare_total = b1_compare | times: b2_qty -%}
+
+      <div
+        class="zbun-option {% if section.settings.bundle_2_featured %}zbun-option--featured{% endif %}"
+        data-qty="{{ b2_qty }}"
+        data-variant="{{ product.selected_or_first_available_variant.id }}"
+        role="radio"
+        aria-checked="false"
+        tabindex="0"
+        id="zbun-opt-2-{{ section.id }}"
+      >
+        <div class="zbun-radio" aria-hidden="true"></div>
+        <div class="zbun-opt-content">
+          <div class="zbun-opt-left">
+            <span class="zbun-opt-label">{{ section.settings.bundle_2_label }}</span>
+            {%- if section.settings.bundle_2_tag != blank -%}
+              <span class="zbun-tag">{{ section.settings.bundle_2_tag }}</span>
+            {%- endif -%}
+          </div>
+          <div class="zbun-opt-right">
+            <span class="zbun-opt-price">{{ b2_total | money }}</span>
+            {%- if b1_compare > b1_price -%}
+              <span class="zbun-opt-compare">{{ b2_compare_total | money }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- if section.settings.bundle_2_badge != blank -%}
+          <span class="zbun-badge">{{ section.settings.bundle_2_badge }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment %} ---- BUNDLE 3 ---- {%- endcomment -%}
+    {%- if section.settings.bundle_3_label != blank -%}
+      {%- assign b3_qty = section.settings.bundle_3_qty -%}
+      {%- assign b3_total = b1_price | times: section.settings.bundle_3_pay_qty -%}
+      {%- assign b3_compare_total = b1_compare | times: b3_qty -%}
+
+      <div
+        class="zbun-option {% if section.settings.bundle_3_featured %}zbun-option--featured{% endif %}"
+        data-qty="{{ b3_qty }}"
+        data-variant="{{ product.selected_or_first_available_variant.id }}"
+        role="radio"
+        aria-checked="false"
+        tabindex="0"
+        id="zbun-opt-3-{{ section.id }}"
+      >
+        <div class="zbun-radio" aria-hidden="true"></div>
+        <div class="zbun-opt-content">
+          <div class="zbun-opt-left">
+            <span class="zbun-opt-label">{{ section.settings.bundle_3_label }}</span>
+            {%- if section.settings.bundle_3_tag != blank -%}
+              <span class="zbun-tag">{{ section.settings.bundle_3_tag }}</span>
+            {%- endif -%}
+          </div>
+          <div class="zbun-opt-right">
+            <span class="zbun-opt-price">{{ b3_total | money }}</span>
+            {%- if b1_compare > b1_price -%}
+              <span class="zbun-opt-compare">{{ b3_compare_total | money }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- if section.settings.bundle_3_badge != blank -%}
+          <span class="zbun-badge">{{ section.settings.bundle_3_badge }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- comment %} ---- Quantity display ---- {%- endcomment -%}
+  <div class="zbun-qty-row">
+    <div class="zbun-qty-controls">
+      <button class="zbun-qty-btn" id="zbun-minus-{{ section.id }}" aria-label="Decrease quantity">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <span class="zbun-qty-display" id="zbun-qty-{{ section.id }}">1</span>
+      <button class="zbun-qty-btn" id="zbun-plus-{{ section.id }}" aria-label="Increase quantity">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <button class="zbun-atc-btn" id="zbun-atc-{{ section.id }}">
+      <span class="zbun-atc-label">{{ section.settings.cta_text | default: 'Add to Cart' }}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  {%- if section.settings.trust_note != blank -%}
+    <p class="zbun-trust">🔒 {{ section.settings.trust_note }}</p>
+  {%- endif -%}
+
+</div>
+
+<style>
+/* ============================================================
+   ZEID BEAUTY — Bundle Selector
+   ============================================================ */
+.zbun-outer {
+  padding: 8px 0 16px;
+}
+
+/* ---- Section header ---- */
+.zbun-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.zbun-line {
+  flex: 1;
+  height: 1px;
+  background: #EDE4DF;
+}
+.zbun-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---- Options list ---- */
+.zbun-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* ---- Single option ---- */
+.zbun-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #FAF7F4;
+  border: 1.5px solid #EDE4DF;
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  user-select: none;
+  outline: none;
+}
+.zbun-option:hover {
+  border-color: #D4A9B0;
+  box-shadow: 0 2px 12px rgba(107, 26, 42, 0.07);
+}
+.zbun-option.zbun-selected {
+  border-color: #6B1A2A;
+  background: rgba(107, 26, 42, 0.03);
+  box-shadow: 0 3px 16px rgba(107, 26, 42, 0.10);
+}
+.zbun-option.zbun-option--featured {
+  border-color: #D4A9B0;
+}
+
+/* ---- Radio circle ---- */
+.zbun-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #D4A9B0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+.zbun-radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6B1A2A;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.zbun-selected .zbun-radio {
+  border-color: #6B1A2A;
+}
+.zbun-selected .zbun-radio::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Option content ---- */
+.zbun-opt-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.zbun-opt-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.zbun-opt-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+.zbun-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #6B1A2A;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+.zbun-opt-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.zbun-opt-price {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1A1A1A;
+  letter-spacing: -0.01em;
+}
+.zbun-opt-compare {
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+/* ---- Popular badge ---- */
+.zbun-badge {
+  position: absolute;
+  top: -1px;
+  right: 16px;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #6B1A2A;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ---- Quantity + ATC row ---- */
+.zbun-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.zbun-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid #EDE4DF;
+  border-radius: 100px;
+  overflow: hidden;
+  background: #fff;
+  flex-shrink: 0;
+}
+.zbun-qty-btn {
+  width: 40px;
+  height: 48px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B1A2A;
+  transition: background 0.15s;
+}
+.zbun-qty-btn:hover { background: rgba(107, 26, 42, 0.06); }
+.zbun-qty-display {
+  min-width: 36px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1A1A;
+  border-left: 1px solid #EDE4DF;
+  border-right: 1px solid #EDE4DF;
+  padding: 0 4px;
+  line-height: 48px;
+}
+
+/* ---- Add to cart button ---- */
+.zbun-atc-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #6B1A2A;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 24px;
+  height: 52px;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.15s, gap 0.2s;
+}
+.zbun-atc-btn:hover { background: #4A1020; transform: translateY(-1px); gap: 14px; }
+.zbun-atc-btn:active { transform: scale(0.98); }
+.zbun-atc-btn:disabled { background: #999; cursor: not-allowed; transform: none; }
+.zbun-atc-btn.zbun-loading .zbun-atc-label::after {
+  content: '...';
+}
+
+/* ---- Trust note ---- */
+.zbun-trust {
+  font-size: 12px;
+  color: #999;
+  margin: 10px 0 0;
+  text-align: center;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 480px) {
+  .zbun-option { padding: 14px 14px; gap: 12px; border-radius: 12px; }
+  .zbun-opt-label { font-size: 14px; }
+  .zbun-opt-price { font-size: 15px; }
+  .zbun-atc-btn { font-size: 13px; letter-spacing: 0.04em; }
+  .zbun-qty-btn { width: 36px; }
+}
+</style>
+
+<script>
+(function () {
+  var sectionId  = '{{ section.id }}';
+  var outer      = document.getElementById('zbun-' + sectionId);
+  var qtyDisplay = document.getElementById('zbun-qty-' + sectionId);
+  var minusBtn   = document.getElementById('zbun-minus-' + sectionId);
+  var plusBtn    = document.getElementById('zbun-plus-' + sectionId);
+  var atcBtn     = document.getElementById('zbun-atc-' + sectionId);
+  var options    = outer ? outer.querySelectorAll('.zbun-option') : [];
+
+  if (!outer || !options.length) return;
+
+  var currentQty     = 1;
+  var currentVariant = options[0] ? options[0].dataset.variant : null;
+
+  // ---- Select a bundle option ----
+  function selectOption(opt) {
+    options.forEach(function (o) {
+      o.classList.remove('zbun-selected');
+      o.setAttribute('aria-checked', 'false');
+    });
+    opt.classList.add('zbun-selected');
+    opt.setAttribute('aria-checked', 'true');
+
+    var qty = parseInt(opt.dataset.qty, 10);
+    currentQty     = qty;
+    currentVariant = opt.dataset.variant;
+    qtyDisplay.textContent = qty;
+  }
+
+  // Auto-select first option
+  if (options[0]) selectOption(options[0]);
+
+  // Click to select
+  options.forEach(function (opt) {
+    opt.addEventListener('click', function () { selectOption(opt); });
+    opt.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectOption(opt); }
+    });
+  });
+
+  // ---- Quantity controls (manual override) ----
+  minusBtn.addEventListener('click', function () {
+    if (currentQty > 1) {
+      currentQty--;
+      qtyDisplay.textContent = currentQty;
+      // Deselect bundle options since user is overriding
+      options.forEach(function (o) {
+        o.classList.remove('zbun-selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+    }
+  });
+  plusBtn.addEventListener('click', function () {
+    currentQty++;
+    qtyDisplay.textContent = currentQty;
+    options.forEach(function (o) {
+      o.classList.remove('zbun-selected');
+      o.setAttribute('aria-checked', 'false');
+    });
+  });
+
+  // ---- Add to cart via Shopify AJAX ----
+  atcBtn.addEventListener('click', function () {
+    if (!currentVariant) return;
+
+    var label = atcBtn.querySelector('.zbun-atc-label');
+    atcBtn.disabled = true;
+    label.textContent = 'Adding...';
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        id: currentVariant,
+        quantity: currentQty
+      })
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (data.status && data.status !== 200) {
+        label.textContent = data.description || 'Error';
+        atcBtn.disabled = false;
+        return;
+      }
+      label.textContent = '✓ Added!';
+      atcBtn.style.background = '#2A6B3A';
+
+      // Trigger cart update events (works with most Shopify themes)
+      document.dispatchEvent(new CustomEvent('cart:refresh'));
+      document.dispatchEvent(new CustomEvent('cart:updated'));
+
+      // Try to open cart drawer if theme supports it
+      var cartDrawerTrigger = document.querySelector('[data-cart-toggle], .cart-toggle, #cart-toggle');
+      if (cartDrawerTrigger) cartDrawerTrigger.click();
+
+      setTimeout(function () {
+        label.textContent = '{{ section.settings.cta_text | default: "Add to Cart" }}';
+        atcBtn.style.background = '';
+        atcBtn.disabled = false;
+      }, 2200);
+    })
+    .catch(function () {
+      label.textContent = 'Error — try again';
+      atcBtn.disabled = false;
+    });
+  });
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZB — Bundle Selector",
+  "tag": "div",
+  "class": "zbun-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Buy More Save More"
+    },
+    {
+      "type": "header",
+      "content": "Bundle 1"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_label",
+      "label": "Label",
+      "default": "Buy 1"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_tag",
+      "label": "Tag pill (e.g. Standard Price)",
+      "default": "Standard Price"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_badge",
+      "label": "Top badge (e.g. Most Popular)",
+      "info": "Leave blank for no badge"
+    },
+    {
+      "type": "range",
+      "id": "bundle_1_qty",
+      "label": "Quantity added to cart",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_1_featured",
+      "label": "Highlight this option",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Bundle 2"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_label",
+      "label": "Label",
+      "default": "Buy 2 Get 1 Free!"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_tag",
+      "label": "Tag pill",
+      "default": "33% OFF"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_badge",
+      "label": "Top badge",
+      "default": "Most Popular"
+    },
+    {
+      "type": "range",
+      "id": "bundle_2_qty",
+      "label": "Total quantity (including free items)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "bundle_2_pay_qty",
+      "label": "Quantity customer pays for",
+      "info": "Buy 2 Get 1 Free = pay for 2, get 3",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_2_featured",
+      "label": "Highlight this option",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Bundle 3"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_label",
+      "label": "Label",
+      "default": "Buy 3 Get 2 Free!"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_tag",
+      "label": "Tag pill",
+      "default": "40% OFF"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_badge",
+      "label": "Top badge",
+      "info": "Leave blank for no badge"
+    },
+    {
+      "type": "range",
+      "id": "bundle_3_qty",
+      "label": "Total quantity (including free items)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "bundle_3_pay_qty",
+      "label": "Quantity customer pays for",
+      "info": "Buy 3 Get 2 Free = pay for 3, get 5",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "bundle_3_featured",
+      "label": "Highlight this option",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "trust_note",
+      "label": "Trust note below button",
+      "default": "Free delivery on orders over $50 · Pay on delivery"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — Bundle Selector",
+      "category": "Zeid Beauty"
+    }
+  ]
+}
+{% endschema %}

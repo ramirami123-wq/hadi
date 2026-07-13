@@ -1,0 +1,291 @@
+<section class="zb-hero" id="zb-hero-{{ section.id }}">
+  <div class="zb-hero__content">
+
+    {%- if section.settings.tag != blank -%}
+      <span class="zb-hero__tag">{{ section.settings.tag }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h1>{{ section.settings.heading }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.subtext != blank -%}
+      <p>{{ section.settings.subtext }}</p>
+    {%- endif -%}
+
+    <div class="zb-hero__actions">
+      {%- if section.settings.btn1_label != blank -%}
+        <a href="{{ section.settings.btn1_link }}" class="zb-btn zb-btn--main">
+          {{ section.settings.btn1_label }}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.btn2_label != blank -%}
+        <a href="{{ section.settings.btn2_link }}" class="zb-btn zb-btn--light">
+          {{ section.settings.btn2_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <div class="zb-hero__image">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1200 }}"
+        alt="{{ section.settings.image.alt | escape | default: section.settings.heading }}"
+        width="1200"
+        loading="eager"
+      >
+    {%- elsif section.settings.image_url != blank -%}
+      <img
+        src="{{ section.settings.image_url }}"
+        alt="{{ section.settings.heading }}"
+        loading="eager"
+      >
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+.zb-hero {
+  display: grid;
+  grid-template-columns: {{ section.settings.content_width }}fr {{ section.settings.image_width }}fr;
+  align-items: center;
+  gap: 40px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: {{ section.settings.padding_top }}px 7% {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color }};
+  overflow: hidden;
+}
+.zb-hero__tag {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6B171D;
+  background: #fff;
+  padding: 9px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.zb-hero h1 {
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: .95;
+  margin: 0 0 18px;
+  color: {{ section.settings.heading_color }};
+}
+.zb-hero p {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: {{ section.settings.text_color }};
+  margin: 0 0 28px;
+}
+.zb-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.zb-btn {
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: .25s ease;
+}
+.zb-btn--main {
+  background: {{ section.settings.btn1_color }};
+  color: #fff;
+}
+.zb-btn--light {
+  background: #fff;
+  color: {{ section.settings.btn1_color }};
+  border: 1px solid #eadada;
+}
+.zb-btn:hover {
+  transform: translateY(-2px);
+}
+.zb-hero__image img {
+  width: 100%;
+  display: block;
+  border-radius: {{ section.settings.image_radius }}px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+}
+@media (max-width: 749px) {
+  .zb-hero {
+    grid-template-columns: 1fr;
+    padding: 42px 22px;
+    gap: 28px;
+    text-align: left;
+  }
+  .zb-hero p { font-size: 16px; }
+  .zb-hero__image { order: {{ section.settings.mobile_image_order }}; }
+  .zb-hero__image img { border-radius: 22px; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "ZB — Hero",
+  "tag": "div",
+  "class": "zb-hero-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Eyebrow tag",
+      "default": "Beauty Essentials Across Lebanon"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading (use \\n for line break)",
+      "default": "Glow Smarter.\nStyle Better."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Discover trending hair care, skin care, and beauty tools selected to upgrade your daily routine."
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "btn1_label",
+      "label": "Button 1 label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Button 2 label",
+      "default": "View Collections"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image (upload)"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Or paste image URL (fallback)"
+    },
+    {
+    "type": "range",
+    "id": "image_radius",
+    "label": "Image border radius",
+    "min": 0,
+    "max": 60,
+    "step": 4,
+    "default": 28
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_order",
+      "label": "Image position on mobile",
+      "options": [
+        { "value": "-1", "label": "Above text" },
+        { "value": "1", "label": "Below text" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content column width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image column width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff7f7"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#2f2f2f"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "btn1_color",
+      "label": "Primary button color",
+      "default": "#6B171D"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — Hero",
+      "category": "Zeid Beauty"
+    }
+  ]
+}
+{% endschema %}

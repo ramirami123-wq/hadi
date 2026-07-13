@@ -1,0 +1,315 @@
+{% comment %}
+  Zeid Beauty — Product Hero Section
+  Fixed: mobile image now shows with proper aspect-ratio
+  Install: Sections → Add new section → zeid-product-hero → paste → Save
+{% endcomment %}
+
+<div class="zbph-outer">
+  <section class="zbph-section" id="zbph-{{ section.id }}">
+
+    {%- assign featured = all_products[section.settings.product] -%}
+    {%- assign has_discount = false -%}
+    {%- if featured.compare_at_price > featured.price -%}
+      {%- assign has_discount = true -%}
+      {%- assign savings = featured.compare_at_price | minus: featured.price -%}
+      {%- assign discount_pct = savings | times: 100 | divided_by: featured.compare_at_price -%}
+    {%- endif -%}
+
+    <!-- IMAGE -->
+    <div class="zbph-media">
+      {%- if section.settings.custom_image != blank -%}
+        <img
+          src="{{ section.settings.custom_image | image_url: width: 900 }}"
+          alt="{{ section.settings.headline }}"
+          class="zbph-img"
+          width="900"
+          loading="eager"
+        >
+      {%- elsif featured.featured_image -%}
+        <img
+          src="{{ featured.featured_image | image_url: width: 900 }}"
+          alt="{{ featured.featured_image.alt | escape }}"
+          class="zbph-img"
+          width="900"
+          loading="eager"
+        >
+      {%- endif -%}
+      {%- if section.settings.badge != blank -%}
+        <span class="zbph-img-badge">{{ section.settings.badge }}</span>
+      {%- endif -%}
+      {%- if has_discount -%}
+        <span class="zbph-img-discount">-{{ discount_pct }}%</span>
+      {%- endif -%}
+    </div>
+
+    <!-- CONTENT -->
+    <div class="zbph-content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="zbph-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      <h2 class="zbph-headline">{{ section.settings.headline | default: featured.title }}</h2>
+
+      {%- if section.settings.subheadline != blank -%}
+        <p class="zbph-sub">{{ section.settings.subheadline }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_rating and section.settings.rating_count > 0 -%}
+        <div class="zbph-rating">
+          <span class="zbph-stars">
+            {%- assign full = section.settings.rating_score | floor -%}
+            {%- for i in (1..5) -%}
+              {%- if i <= full -%}★{%- else -%}<span style="opacity:.3">★</span>{%- endif -%}
+            {%- endfor -%}
+          </span>
+          <span class="zbph-rating-text">{{ section.settings.rating_score }} · {{ section.settings.rating_count }} reviews</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.bullet_1 != blank or section.settings.bullet_2 != blank or section.settings.bullet_3 != blank -%}
+        <ul class="zbph-bullets">
+          {%- if section.settings.bullet_1 != blank -%}<li>{{ section.settings.bullet_1 }}</li>{%- endif -%}
+          {%- if section.settings.bullet_2 != blank -%}<li>{{ section.settings.bullet_2 }}</li>{%- endif -%}
+          {%- if section.settings.bullet_3 != blank -%}<li>{{ section.settings.bullet_3 }}</li>{%- endif -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.review_quote != blank -%}
+        <blockquote class="zbph-quote">
+          <p>"{{ section.settings.review_quote }}"</p>
+          {%- if section.settings.review_author != blank -%}
+            <cite>— {{ section.settings.review_author }}</cite>
+          {%- endif -%}
+        </blockquote>
+      {%- endif -%}
+
+      {%- if featured != blank -%}
+        <div class="zbph-pricing">
+          <span class="zbph-price">{{ featured.price | money }}</span>
+          {%- if has_discount -%}
+            <span class="zbph-compare">{{ featured.compare_at_price | money }}</span>
+            <span class="zbph-save-pill">Save {{ discount_pct }}%</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <a href="{{ featured.url }}" class="zbph-cta">
+        {{ section.settings.cta_text | default: 'Shop Now' }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      {%- if section.settings.trust_note != blank -%}
+        <p class="zbph-trust">🔒 {{ section.settings.trust_note }}</p>
+      {%- endif -%}
+    </div>
+
+  </section>
+</div>
+
+<style>
+/* ============================================================
+   ZEID BEAUTY — Product Hero Section
+   Fixed: mobile image with proper aspect-ratio
+   ============================================================ */
+
+.zbph-outer {
+  max-width: 1320px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+/* ---- Desktop: side by side ---- */
+.zbph-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  border: 1.5px solid #D4A9B0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(107, 26, 42, 0.07);
+}
+
+/* ---- Image side ---- */
+.zbph-media {
+  position: relative;
+  overflow: hidden;
+  background: #F5F0ED;
+  /* Desktop: fills full height of the grid row */
+  min-height: 480px;
+}
+.zbph-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.zbph-section:hover .zbph-img {
+  transform: scale(1.03);
+}
+.zbph-img-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #6B1A2A;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 100px;
+  z-index: 2;
+}
+.zbph-img-discount {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #6B1A2A;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1.5px solid #D4A9B0;
+  z-index: 2;
+}
+
+/* ---- Content side ---- */
+.zbph-content {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.zbph-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6B1A2A;
+  background: rgba(107, 26, 42, 0.07);
+  padding: 4px 13px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.zbph-headline {
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.zbph-sub {
+  font-size: 15px;
+  color: #5A5A5A;
+  line-height: 1.6;
+  margin: 0;
+}
+.zbph-rating { display: flex; align-items: center; gap: 8px; }
+.zbph-stars { color: #6B1A2A; font-size: 16px; letter-spacing: 1px; }
+.zbph-rating-text { font-size: 13px; color: #6B6B6B; font-weight: 500; }
+.zbph-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.zbph-bullets li { font-size: 14px; color: #333; display: flex; align-items: flex-start; gap: 9px; line-height: 1.4; }
+.zbph-bullets li::before { content: '✔'; color: #6B1A2A; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.zbph-quote { background: rgba(107,26,42,0.04); border-left: 3px solid #D4A9B0; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 0; }
+.zbph-quote p { font-size: 13px; color: #444; font-style: italic; line-height: 1.55; margin: 0 0 6px; }
+.zbph-quote cite { font-size: 12px; color: #6B1A2A; font-style: normal; font-weight: 600; }
+.zbph-pricing { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.zbph-price { font-size: 26px; font-weight: 800; color: #1A1A1A; letter-spacing: -0.02em; }
+.zbph-compare { font-size: 16px; color: #999; text-decoration: line-through; }
+.zbph-save-pill { font-size: 12px; font-weight: 700; color: #2A6B3A; background: rgba(42,107,58,0.1); padding: 3px 10px; border-radius: 100px; }
+.zbph-cta { display: inline-flex; align-items: center; gap: 10px; background: #6B1A2A; color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 16px 32px; border-radius: 100px; text-decoration: none; width: fit-content; transition: background 0.25s, transform 0.18s, gap 0.2s; }
+.zbph-cta:hover { background: #4A1020; transform: translateY(-2px); gap: 14px; }
+.zbph-trust { font-size: 12px; color: #888; margin: 0; }
+
+/* ============================================================
+   MOBILE — key fix: image uses aspect-ratio not min-height
+   ============================================================ */
+@media (max-width: 768px) {
+  .zbph-outer { padding: 0 12px; }
+
+  .zbph-section {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+
+  /* THE FIX: aspect-ratio gives the image a real height on mobile */
+  .zbph-media {
+    position: relative;
+    min-height: unset;
+    aspect-ratio: 4 / 3; /* change to 1/1 for square, 3/4 for portrait */
+    width: 100%;
+  }
+
+  /* img is absolutely positioned so it fills the aspect-ratio box */
+  .zbph-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .zbph-content {
+    padding: 24px 20px 28px;
+    gap: 14px;
+  }
+
+  .zbph-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zbph-price { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  .zbph-section { border-radius: 16px; }
+  .zbph-outer { padding: 0 10px; }
+  .zbph-media { aspect-ratio: 3 / 2; } /* slightly shorter on small phones */
+  .zbph-content { padding: 20px 16px 24px; }
+  .zbph-headline { font-size: 20px; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "ZB — Product Hero",
+  "tag": "section",
+  "class": "zbph-section-wrapper",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Featured product" },
+    { "type": "image_picker", "id": "custom_image", "label": "Custom image (overrides product image)" },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Staff Pick" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Brows that look real. Done in seconds." },
+    { "type": "textarea", "id": "subheadline", "label": "Subheadline", "default": "The Tattoo Brow Pen uses a precision microblade tip to create hair-like strokes that blend seamlessly with your natural brows." },
+    { "type": "text", "id": "badge", "label": "Image badge", "default": "★ Best Seller" },
+    { "type": "header", "content": "Bullet points" },
+    { "type": "text", "id": "bullet_1", "label": "Bullet 1", "default": "Natural hair-like strokes — looks real, not drawn" },
+    { "type": "text", "id": "bullet_2", "label": "Bullet 2", "default": "Dual-sided: microblade tip for brows + fine tip for eyeliner" },
+    { "type": "text", "id": "bullet_3", "label": "Bullet 3", "default": "Long-lasting, smudge-resistant — stays all day" },
+    { "type": "header", "content": "Customer review" },
+    { "type": "textarea", "id": "review_quote", "label": "Review quote", "default": "One side is precise for drawing hair-like strokes, and the 4-tip side makes my brows look fuller in seconds. Very natural finish." },
+    { "type": "text", "id": "review_author", "label": "Reviewer name", "default": "Hiba Saad" },
+    { "type": "header", "content": "Rating" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show star rating", "default": true },
+    { "type": "number", "id": "rating_score", "label": "Rating score", "default": 5 },
+    { "type": "number", "id": "rating_count", "label": "Number of reviews", "default": 8 },
+    { "type": "header", "content": "CTA" },
+    { "type": "text", "id": "cta_text", "label": "Button text", "default": "Shop Now" },
+    { "type": "text", "id": "trust_note", "label": "Trust note below button", "default": "Free delivery on orders over $50 · Pay on delivery" }
+  ],
+  "presets": [{ "name": "ZB — Product Hero", "category": "Zeid Beauty" }]
+}
+{% endschema %}

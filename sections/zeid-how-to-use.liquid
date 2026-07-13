@@ -1,0 +1,520 @@
+{% comment %}
+  Zeid Beauty — How to Use 3-Step Section
+  Works on: Homepage, Product pages, any template
+  Install: Sections → Add new section → zeid-how-to-use → paste → Save
+  Usage: Customize → Add section → "ZB — How to Use"
+  
+  TIP: For product pages, fill the steps via metafields:
+  Settings → Custom data → Products → Add definition:
+  Name: how_to_use_1, how_to_use_2, how_to_use_3 (Single-line text)
+  Then replace section.settings.step_X_desc with:
+  product.metafields.custom.how_to_use_X.value
+{% endcomment %}
+
+<div class="zbhu-outer" id="zbhu-{{ section.id }}">
+
+  {%- if section.settings.eyebrow != blank -%}
+    <div class="zbhu-eyebrow-wrap">
+      <span class="zbhu-eyebrow">{{ section.settings.eyebrow }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.title != blank -%}
+    <h2 class="zbhu-title">{{ section.settings.title }}</h2>
+  {%- endif -%}
+
+  {%- if section.settings.subtitle != blank -%}
+    <p class="zbhu-subtitle">{{ section.settings.subtitle }}</p>
+  {%- endif -%}
+
+  <div class="zbhu-steps">
+
+    <!-- Step 1 -->
+    {%- if section.settings.step_1_title != blank -%}
+    <div class="zbhu-step">
+      <div class="zbhu-step__visual">
+        <div class="zbhu-step__num">1</div>
+        {%- if section.settings.step_1_image != blank -%}
+          <div class="zbhu-step__img-wrap">
+            <img
+              src="{{ section.settings.step_1_image | image_url: width: 400 }}"
+              alt="{{ section.settings.step_1_title }}"
+              loading="lazy"
+              width="400"
+            >
+          </div>
+        {%- else -%}
+          <div class="zbhu-step__icon">{{ section.settings.step_1_icon | default: '1️⃣' }}</div>
+        {%- endif -%}
+      </div>
+      <div class="zbhu-step__content">
+        <div class="zbhu-step__label">{{ section.settings.step_1_title }}</div>
+        {%- if section.settings.step_1_desc != blank -%}
+          <p class="zbhu-step__desc">{{ section.settings.step_1_desc }}</p>
+        {%- endif -%}
+        {%- if section.settings.step_1_tip != blank -%}
+          <span class="zbhu-step__tip">💡 {{ section.settings.step_1_tip }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- unless section.settings.step_2_title == blank -%}
+      <div class="zbhu-connector" aria-hidden="true">
+        <div class="zbhu-connector__line"></div>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 1v12M2 8l5 5 5-5" stroke="#D4A9B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    {%- endunless -%}
+    {%- endif -%}
+
+    <!-- Step 2 -->
+    {%- if section.settings.step_2_title != blank -%}
+    <div class="zbhu-step">
+      <div class="zbhu-step__visual">
+        <div class="zbhu-step__num">2</div>
+        {%- if section.settings.step_2_image != blank -%}
+          <div class="zbhu-step__img-wrap">
+            <img
+              src="{{ section.settings.step_2_image | image_url: width: 400 }}"
+              alt="{{ section.settings.step_2_title }}"
+              loading="lazy"
+              width="400"
+            >
+          </div>
+        {%- else -%}
+          <div class="zbhu-step__icon">{{ section.settings.step_2_icon | default: '2️⃣' }}</div>
+        {%- endif -%}
+      </div>
+      <div class="zbhu-step__content">
+        <div class="zbhu-step__label">{{ section.settings.step_2_title }}</div>
+        {%- if section.settings.step_2_desc != blank -%}
+          <p class="zbhu-step__desc">{{ section.settings.step_2_desc }}</p>
+        {%- endif -%}
+        {%- if section.settings.step_2_tip != blank -%}
+          <span class="zbhu-step__tip">💡 {{ section.settings.step_2_tip }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- unless section.settings.step_3_title == blank -%}
+      <div class="zbhu-connector" aria-hidden="true">
+        <div class="zbhu-connector__line"></div>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 1v12M2 8l5 5 5-5" stroke="#D4A9B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    {%- endunless -%}
+    {%- endif -%}
+
+    <!-- Step 3 -->
+    {%- if section.settings.step_3_title != blank -%}
+    <div class="zbhu-step">
+      <div class="zbhu-step__visual">
+        <div class="zbhu-step__num">3</div>
+        {%- if section.settings.step_3_image != blank -%}
+          <div class="zbhu-step__img-wrap">
+            <img
+              src="{{ section.settings.step_3_image | image_url: width: 400 }}"
+              alt="{{ section.settings.step_3_title }}"
+              loading="lazy"
+              width="400"
+            >
+          </div>
+        {%- else -%}
+          <div class="zbhu-step__icon">{{ section.settings.step_3_icon | default: '3️⃣' }}</div>
+        {%- endif -%}
+      </div>
+      <div class="zbhu-step__content">
+        <div class="zbhu-step__label">{{ section.settings.step_3_title }}</div>
+        {%- if section.settings.step_3_desc != blank -%}
+          <p class="zbhu-step__desc">{{ section.settings.step_3_desc }}</p>
+        {%- endif -%}
+        {%- if section.settings.step_3_tip != blank -%}
+          <span class="zbhu-step__tip">💡 {{ section.settings.step_3_tip }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- if section.settings.cta_label != blank and section.settings.cta_link != blank -%}
+    <div class="zbhu-cta-wrap">
+      <a href="{{ section.settings.cta_link }}" class="zbhu-cta">
+        {{ section.settings.cta_label }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  {%- endif -%}
+
+</div>
+<script>
+(function () {
+  var items = document.querySelectorAll('.zbhu-step, .zbhu-connector');
+  if (!items.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('zb-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  items.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+<style>
+/* ============================================================
+   ZEID BEAUTY — How to Use 3-Step Section
+   ============================================================ */
+
+.zbhu-outer {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  padding: 48px 20px 52px;
+}
+
+/* ---- Eyebrow ---- */
+.zbhu-eyebrow-wrap { text-align: center; margin-bottom: 12px; }
+.zbhu-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6B1A2A;
+  background: rgba(107, 26, 42, 0.07);
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+
+/* ---- Title & subtitle ---- */
+.zbhu-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.zbhu-subtitle {
+  font-size: 15px;
+  color: #6B6B6B;
+  line-height: 1.6;
+  margin: 0 0 36px;
+  text-align: center;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Steps container ---- */
+.zbhu-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- Connector between steps ---- */
+.zbhu-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 0;
+  margin-left: 27px; /* aligns with center of step number */
+}
+.zbhu-connector__line {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, #D4A9B0, #D4A9B0);
+  border-radius: 1px;
+}
+
+/* ---- Single step ---- */
+.zbhu-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1.5px solid #EDE4DF;
+  border-radius: 18px;
+  padding: 20px 22px;
+  transition: border-color 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 12px rgba(107, 26, 42, 0.05);
+}
+.zbhu-step:hover {
+  border-color: #D4A9B0;
+  box-shadow: 0 4px 20px rgba(107, 26, 42, 0.10);
+}
+
+/* ---- Visual side (number + optional image/icon) ---- */
+.zbhu-step__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Step number circle */
+.zbhu-step__num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #6B1A2A;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(107, 26, 42, 0.25);
+}
+
+/* Optional step image */
+.zbhu-step__img-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #EDE4DF;
+}
+.zbhu-step__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Emoji icon fallback */
+.zbhu-step__icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* ---- Content side ---- */
+.zbhu-step__content {
+  flex: 1;
+  padding-top: 6px;
+}
+.zbhu-step__label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.zbhu-step__desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+.zbhu-step__tip {
+  display: inline-block;
+  font-size: 12px;
+  color: #6B1A2A;
+  background: rgba(107, 26, 42, 0.06);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+/* ---- CTA ---- */
+.zbhu-cta-wrap {
+  text-align: center;
+  margin-top: 36px;
+}
+.zbhu-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #6B1A2A;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.22s, transform 0.16s, gap 0.2s;
+}
+.zbhu-cta:hover {
+  background: #4A1020;
+  transform: translateY(-2px);
+  gap: 14px;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 600px) {
+  .zbhu-outer { padding: 36px 14px 40px; }
+  .zbhu-step { padding: 16px 16px; gap: 14px; border-radius: 16px; }
+  .zbhu-step__num { width: 32px; height: 32px; font-size: 13px; }
+  .zbhu-step__img-wrap { width: 64px; height: 64px; border-radius: 10px; }
+  .zbhu-step__label { font-size: 15px; }
+  .zbhu-connector { margin-left: 23px; }
+  .zbhu-cta { width: 100%; justify-content: center; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "ZB — How to Use",
+  "tag": "div",
+  "class": "zbhu-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Simple & effective"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How to Use"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Three simple steps. Results you can see."
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 title",
+      "default": "Pump"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_desc",
+      "label": "Step 1 description",
+      "default": "Press 2 pumps of the purple serum onto a soft toothbrush. The colour-correcting formula activates on contact."
+    },
+    {
+      "type": "text",
+      "id": "step_1_tip",
+      "label": "Step 1 tip (optional)",
+      "default": "Use after brushing your teeth as normal"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_1_image",
+      "label": "Step 1 image (optional — overrides icon)"
+    },
+    {
+      "type": "text",
+      "id": "step_1_icon",
+      "label": "Step 1 emoji icon (if no image)",
+      "default": "🪥"
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 title",
+      "default": "Brush"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_desc",
+      "label": "Step 2 description",
+      "default": "Gently brush in circular motions for 2 minutes. The purple serum neutralises yellow tones — you'll notice a difference immediately."
+    },
+    {
+      "type": "text",
+      "id": "step_2_tip",
+      "label": "Step 2 tip (optional)",
+      "default": "The more yellow your teeth, the more noticeable the result"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_2_image",
+      "label": "Step 2 image (optional)"
+    },
+    {
+      "type": "text",
+      "id": "step_2_icon",
+      "label": "Step 2 emoji icon",
+      "default": "💜"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 title",
+      "default": "Rinse & smile"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_desc",
+      "label": "Step 3 description",
+      "default": "Rinse thoroughly. Use daily or before any event — a date, interview, or night out — for an instantly brighter smile."
+    },
+    {
+      "type": "text",
+      "id": "step_3_tip",
+      "label": "Step 3 tip (optional)",
+      "default": "No sensitivity, no bleach — safe for everyday use"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_3_image",
+      "label": "Step 3 image (optional)"
+    },
+    {
+      "type": "text",
+      "id": "step_3_icon",
+      "label": "Step 3 emoji icon",
+      "default": "✨"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ZB — How to Use",
+      "category": "Zeid Beauty"
+    }
+  ]
+  
+}
+
+{% endschema %}

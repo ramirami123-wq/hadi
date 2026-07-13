@@ -1,0 +1,409 @@
+{%- assign featured = all_products[section.settings.product] -%}
+{%- assign has_discount = false -%}
+{%- if featured.compare_at_price > featured.price -%}
+  {%- assign has_discount = true -%}
+  {%- assign savings = featured.compare_at_price | minus: featured.price -%}
+  {%- assign discount_pct = savings | times: 100 | divided_by: featured.compare_at_price -%}
+{%- endif -%}
+
+<div class="zbba-outer" id="zbba-{{ section.id }}">
+  <div class="zbba-layout">
+
+    <!-- ===== Slider ===== -->
+    <div class="zbba-slider-col">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="zbba-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      <div class="zbba-slider" id="zbba-slider-{{ section.id }}">
+
+        <!-- AFTER: full width base, sets container height -->
+        <div class="zbba-layer zbba-after">
+          {%- if section.settings.image_after != blank -%}
+            <img src="{{ section.settings.image_after | image_url: width: 900 }}" alt="After" draggable="false" loading="lazy">
+          {%- else -%}
+            <div class="zbba-ph zbba-ph--after"></div>
+          {%- endif -%}
+          <span class="zbba-label zbba-label--after">{{ section.settings.label_after | default: 'After' }}</span>
+        </div>
+
+        <!-- BEFORE: absolutely placed, clipped by clip-path -->
+        <div class="zbba-layer zbba-before" id="zbba-before-{{ section.id }}">
+          {%- if section.settings.image_before != blank -%}
+            <img src="{{ section.settings.image_before | image_url: width: 900 }}" alt="Before" draggable="false" loading="lazy">
+          {%- else -%}
+            <div class="zbba-ph zbba-ph--before"></div>
+          {%- endif -%}
+          <span class="zbba-label zbba-label--before">{{ section.settings.label_before | default: 'Before' }}</span>
+        </div>
+
+        <!-- White divider line -->
+        <div class="zbba-divider" id="zbba-divider-{{ section.id }}"></div>
+
+        <!-- Handle -->
+        <div class="zbba-handle" id="zbba-handle-{{ section.id }}">
+          <div class="zbba-handle__circle">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 9H1M5 9L3 6M5 9L3 12M13 9h4M13 9l2-3M13 9l2 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+      <p class="zbba-hint">↔ Drag to compare</p>
+    </div>
+
+    <!-- ===== Product Info ===== -->
+    <div class="zbba-info-col">
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="zbba-product-title">{{ section.settings.title }}</h2>
+      {%- elsif featured != blank -%}
+        <h2 class="zbba-product-title">{{ featured.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="zbba-product-sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_rating and section.settings.rating_count > 0 -%}
+        <div class="zbba-rating">
+          <span class="zbba-stars">
+            {%- assign full = section.settings.rating_score | floor -%}
+            {%- for i in (1..5) -%}{%- if i <= full -%}★{%- else -%}<span style="opacity:.25">★</span>{%- endif -%}{%- endfor -%}
+          </span>
+          <span class="zbba-rating-text">{{ section.settings.rating_score }} · {{ section.settings.rating_count }} reviews</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.bullet_1 != blank or section.settings.bullet_2 != blank or section.settings.bullet_3 != blank -%}
+        <ul class="zbba-bullets">
+          {%- if section.settings.bullet_1 != blank -%}<li>{{ section.settings.bullet_1 }}</li>{%- endif -%}
+          {%- if section.settings.bullet_2 != blank -%}<li>{{ section.settings.bullet_2 }}</li>{%- endif -%}
+          {%- if section.settings.bullet_3 != blank -%}<li>{{ section.settings.bullet_3 }}</li>{%- endif -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if featured != blank -%}
+        <div class="zbba-pricing">
+          <span class="zbba-price">{{ featured.price | money }}</span>
+          {%- if has_discount -%}
+            <span class="zbba-compare">{{ featured.compare_at_price | money }}</span>
+            <span class="zbba-save">Save {{ discount_pct }}%</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="zbba-actions">
+        {%- if featured != blank -%}
+          <a href="{{ featured.url }}" class="zbba-btn zbba-btn--primary">
+            {{ section.settings.cta_label | default: 'Buy Now' }}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
+          <a href="{{ section.settings.secondary_link }}" class="zbba-btn zbba-btn--outline">{{ section.settings.secondary_label }}</a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.trust_note != blank -%}
+        <p class="zbba-trust">🔒 {{ section.settings.trust_note }}</p>
+      {%- endif -%}
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+.zbba-outer {
+  max-width: 1280px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+}
+.zbba-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  background: #fff;
+  border: 1.5px solid #D4A9B0;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 4px 28px rgba(107,26,42,0.07);
+}
+@media (min-width: 768px) {
+  .zbba-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    align-items: center;
+    border-radius: 28px;
+  }
+}
+
+.zbba-slider-col { display: flex; flex-direction: column; gap: 10px; }
+
+.zbba-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6B1A2A;
+  background: rgba(107,26,42,0.07);
+  padding: 4px 13px;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+/* ---- Slider ---- */
+.zbba-slider {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid #EDE4DF;
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  background: #F0EBE8;
+}
+
+/* Both layers share the same positioning */
+.zbba-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* AFTER: sets the container height, sits at back */
+.zbba-after {
+  position: relative; /* overrides absolute just for this one */
+  aspect-ratio: 4 / 5;
+}
+.zbba-after img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  pointer-events: none;
+}
+
+/* BEFORE: clips from left using clip-path, no scale distortion */
+.zbba-before {
+  clip-path: inset(0 85% 0 0); /* starts showing only 15% */
+  transition: none;
+}
+.zbba-before img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  pointer-events: none;
+}
+
+/* Placeholders */
+.zbba-ph { position: absolute; inset: 0; }
+.zbba-ph--after  { background: #A88890; }
+.zbba-ph--before { background: #C8A8B0; }
+
+/* Labels */
+.zbba-label {
+  position: absolute;
+  bottom: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(15,5,8,0.50);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 11px;
+  border-radius: 100px;
+  z-index: 5;
+}
+.zbba-label--before { left: 12px; }
+.zbba-label--after  { right: 12px; }
+
+/* White divider line */
+.zbba-divider {
+  position: absolute;
+  top: 0;
+  left: 15%; /* matches start position */
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* Handle — sits on the divider line, centered */
+.zbba-handle {
+  position: absolute;
+  top: 50%;
+  left: 15%; /* matches start position */
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+}
+.zbba-handle__circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #6B1A2A;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(107,26,42,0.45);
+  border: 2.5px solid #fff;
+}
+
+.zbba-hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  text-align: center;
+}
+
+/* ---- Info col ---- */
+.zbba-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+.zbba-product-title {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+.zbba-product-sub { font-size: 14px; color: #5A5A5A; line-height: 1.6; margin: 0; }
+.zbba-rating { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.zbba-stars { color: #6B1A2A; font-size: 15px; letter-spacing: 1px; }
+.zbba-rating-text { font-size: 13px; color: #777; font-weight: 500; }
+.zbba-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+.zbba-bullets li { font-size: 14px; color: #333; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+.zbba-bullets li::before { content: '✔'; color: #6B1A2A; font-size: 12px; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+.zbba-pricing { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.zbba-price { font-size: 26px; font-weight: 800; color: #1A1A1A; letter-spacing: -0.02em; }
+.zbba-compare { font-size: 16px; color: #aaa; text-decoration: line-through; }
+.zbba-save { font-size: 12px; font-weight: 700; color: #2A6B3A; background: rgba(42,107,58,0.1); padding: 3px 9px; border-radius: 100px; }
+.zbba-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.zbba-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 14px 24px; border-radius: 100px; text-decoration: none; transition: background 0.22s, transform 0.16s, gap 0.2s; flex: 1; justify-content: center; min-width: 130px; }
+.zbba-btn--primary { background: #6B1A2A; color: #fff; }
+.zbba-btn--primary:hover { background: #4A1020; transform: translateY(-2px); gap: 12px; }
+.zbba-btn--outline { background: transparent; color: #6B1A2A; border: 1.5px solid #6B1A2A; }
+.zbba-btn--outline:hover { background: #6B1A2A; color: #fff; transform: translateY(-2px); }
+.zbba-trust { font-size: 12px; color: #999; margin: 0; }
+
+@media (max-width: 480px) {
+  .zbba-outer { padding: 0 12px; }
+  .zbba-layout { padding: 16px; border-radius: 20px; gap: 18px; }
+  .zbba-after { aspect-ratio: 1 / 1; }
+  .zbba-btn { padding: 13px 16px; font-size: 13px; }
+  .zbba-handle__circle { width: 36px; height: 36px; }
+}
+</style>
+
+<script>
+(function () {
+  var slider  = document.getElementById('zbba-slider-{{ section.id }}');
+  var before  = document.getElementById('zbba-before-{{ section.id }}');
+  var handle  = document.getElementById('zbba-handle-{{ section.id }}');
+  var divider = document.getElementById('zbba-divider-{{ section.id }}');
+  if (!slider || !before || !handle || !divider) return;
+
+  var dragging  = false;
+  var startPct  = 15; // ← start position in %
+
+  function setPos(pct) {
+    pct = Math.max(2, Math.min(98, pct));
+    // clip-path approach — no distortion, no zoom
+    before.style.clipPath  = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    handle.style.left      = pct + '%';
+    divider.style.left     = pct + '%';
+  }
+
+  function getPct(clientX) {
+    var rect = slider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  // Mouse
+  slider.addEventListener('mousedown', function (e) {
+    dragging = true;
+    setPos(getPct(e.clientX));
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', function (e) {
+    if (dragging) setPos(getPct(e.clientX));
+  });
+  window.addEventListener('mouseup', function () { dragging = false; });
+
+  // Touch
+  slider.addEventListener('touchstart', function (e) {
+    dragging = true;
+    setPos(getPct(e.touches[0].clientX));
+  }, { passive: true });
+  window.addEventListener('touchmove', function (e) {
+    if (dragging) setPos(getPct(e.touches[0].clientX));
+  }, { passive: true });
+  window.addEventListener('touchend', function () { dragging = false; });
+
+  // Init at startPct
+  setPos(startPct);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ZB — Before & After",
+  "tag": "div",
+  "class": "zbba-section-wrapper",
+  "settings": [
+    { "type": "header", "content": "Product" },
+    { "type": "product", "id": "product", "label": "Select product" },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "See the difference" },
+    { "type": "text", "id": "title", "label": "Product title override" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Real results from a real product." },
+    { "type": "header", "content": "Bullet points" },
+    { "type": "text", "id": "bullet_1", "label": "Bullet 1", "default": "Creates natural, realistic freckles instantly" },
+    { "type": "text", "id": "bullet_2", "label": "Bullet 2", "default": "Waterproof and long-lasting formula" },
+    { "type": "text", "id": "bullet_3", "label": "Bullet 3", "default": "Lightweight feel with no smudging" },
+    { "type": "header", "content": "Rating" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating", "default": true },
+    { "type": "number", "id": "rating_score", "label": "Rating score", "default": 5 },
+    { "type": "number", "id": "rating_count", "label": "Review count", "default": 12 },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "cta_label", "label": "Primary button label", "default": "Buy Now" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "View Details" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" },
+    { "type": "text", "id": "trust_note", "label": "Trust note", "default": "Free delivery over $50 · Pay on delivery" },
+    { "type": "header", "content": "Before & After images" },
+    { "type": "image_picker", "id": "image_before", "label": "Before image" },
+    { "type": "image_picker", "id": "image_after", "label": "After image" },
+    { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
+    { "type": "text", "id": "label_after", "label": "After label", "default": "After" }
+  ],
+  "presets": [
+    { "name": "ZB — Before & After", "category": "Zeid Beauty" }
+  ]
+}
+{% endschema %}
