@@ -152,7 +152,7 @@
         "show_divider": false,
         "use_custom_colors": true,
         "colors_icon": "#f1ff34",
-        "colors_text": "#C3A46E",
+        "colors_text": "#c3a46e",
         "colors_background": "#f2f2f2",
         "gradient_background": "linear-gradient(343deg, rgba(0, 0, 0, 1) 15%, rgba(17, 17, 17, 1) 15%)",
         "padding_top": 16,
@@ -236,7 +236,7 @@
         "show_divider": false,
         "use_custom_colors": true,
         "colors_icon": "#f1ff34",
-        "colors_text": "#C3A46E",
+        "colors_text": "#c3a46e",
         "colors_background": "#f2f2f2",
         "gradient_background": "linear-gradient(310deg, rgba(17, 17, 17, 1) 15%, rgba(17, 17, 17, 1) 43%)",
         "padding_top": 16,
@@ -296,17 +296,6 @@
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .faq-section {\n    background: #ffffff;\n    padding: 48px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n  }\n\n  .faq-inner {\n    max-width: 720px;\n    margin: 0 auto;\n  }\n\n  .faq-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111111;\n    text-transform: uppercase;\n    text-align: center;\n    margin: 0 0 8px;\n  }\n\n  .faq-subtitle {\n    font-size: 15px;\n    color: #666666;\n    text-align: center;\n    margin: 0 0 36px;\n  }\n\n  .faq-item {\n    border-bottom: 1px solid #ece7de;\n  }\n\n  .faq-question {\n    width: 100%;\n    background: none;\n    border: none;\n    padding: 18px 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    cursor: pointer;\n    font-family: 'Barlow', Arial, sans-serif;\n    font-size: 15px;\n    font-weight: 700;\n    color: #111111;\n    text-align: left;\n  }\n\n  .faq-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    border-radius: 50%;\n    background: #faf7f1;\n    border: 2px solid #c3a46e;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #111111;\n    transition: 0.3s ease;\n  }\n\n  .faq-question.open .faq-icon {\n    background: #c3a46e;\n    color: #111111;\n    transform: rotate(45deg);\n  }\n\n  .faq-answer {\n    max-height: 0;\n    overflow: hidden;\n    transition: max-height 0.3s ease, padding 0.3s ease;\n  }\n\n  .faq-answer.open {\n    max-height: 300px;\n    padding-bottom: 18px;\n  }\n\n  .faq-answer p {\n    margin: 0;\n    padding: 0 4px;\n    font-size: 14px;\n    line-height: 1.6;\n    color: #555555;\n  }\n</style>\n\n<div class=\"faq-section\">\n  <div class=\"faq-inner\">\n\n    <h2 class=\"faq-title\">Frequently Asked Questions</h2>\n    <p class=\"faq-subtitle\">Everything you need to know about the 7-color LED face mask.</p>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How do I use the LED face mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Clean and dry your face, place the mask comfortably over your skin, connect the controller and select your preferred light mode. Follow the included instructions for the recommended session time.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        What do the seven light colors do?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Each light color is designed to support a different skincare goal, such as improving the appearance of dullness, uneven tone, redness, blemishes or signs of aging.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How often should I use the mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Use it according to the product instructions. A consistent routine is more important than using it for longer or more frequently than recommended.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Can I apply skincare products before using it?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Start with clean, dry skin unless the product instructions state otherwise. Avoid applying products that may cause irritation or increase light sensitivity before your session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Is the mask comfortable to wear?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Yes. Its lightweight, flexible design is made to contour comfortably around the face while allowing you to relax during your skincare session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        When will I notice visible results?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Results vary depending on skin type, routine and consistency. LED skincare is generally intended for gradual improvements rather than instant changes.\n        </p>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  function toggleFaq(button) {\n    const faqSection = button.closest('.faq-section');\n    const answer = button.nextElementSibling;\n    const isOpen = button.classList.contains('open');\n\n    faqSection.querySelectorAll('.faq-question').forEach(function(question) {\n      question.classList.remove('open');\n    });\n\n    faqSection.querySelectorAll('.faq-answer').forEach(function(item) {\n      item.classList.remove('open');\n    });\n\n    if (!isOpen) {\n      button.classList.add('open');\n      answer.classList.add('open');\n    }\n  }\n</script>",
-        "full_width": false,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "custom_liquid_K8YeaH": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .reviews-section {\n    background: #faf7f1;\n    padding: 32px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n    text-align: center;\n  }\n\n  .reviews-stars-row {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 8px;\n    margin-bottom: 12px;\n    color: #111111;\n  }\n\n  .reviews-stars {\n    color: #c3a46e;\n    font-size: 20px;\n    letter-spacing: 2px;\n  }\n\n  .reviews-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111111;\n    text-transform: uppercase;\n    margin: 0 0 24px;\n  }\n\n  .reviews-tabs {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 10px;\n    justify-content: center;\n    margin-bottom: 28px;\n  }\n\n  .reviews-tab {\n    padding: 10px 20px;\n    border-radius: 50px;\n    border: 2px solid #c3a46e;\n    background: #ffffff;\n    color: #111111;\n    font-family: 'Barlow', Arial, sans-serif;\n    font-size: 14px;\n    font-weight: 700;\n    cursor: pointer;\n    transition: 0.25s ease;\n  }\n\n  .reviews-tab:hover {\n    background: #f3ede2;\n  }\n\n  .reviews-tab.active {\n    background: #c3a46e;\n    border-color: #c3a46e;\n    color: #111111;\n  }\n\n  .reviews-grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 24px;\n    max-width: 1000px;\n    margin: 0 auto;\n  }\n\n  .review-card {\n    background: #ffffff;\n    border: 1px solid #ece4d7;\n    border-radius: 14px;\n    padding: 22px 18px;\n    text-align: center;\n    box-shadow: 0 4px 20px rgba(17, 17, 17, 0.05);\n  }\n\n  .review-card-stars {\n    color: #c3a46e;\n    font-size: 18px;\n    letter-spacing: 2px;\n  }\n\n  .review-card-text {\n    font-size: 14px;\n    line-height: 1.6;\n    color: #222222;\n    margin: 12px 0;\n  }\n\n  .review-card-author {\n    display: block;\n    font-weight: 700;\n    color: #111111;\n    margin-top: 6px;\n  }\n\n  @media (max-width: 749px) {\n    .reviews-grid {\n      grid-template-columns: 1fr;\n    }\n\n    .reviews-title {\n      font-size: 24px;\n    }\n  }\n</style>\n\n<div class=\"reviews-section\">\n\n  <div class=\"reviews-stars-row\">\n    <span class=\"reviews-stars\">★★★★★</span>\n    <span>4.8 stars</span>\n  </div>\n\n  <h2 class=\"reviews-title\">Brighter Skin. Real Experiences.</h2>\n\n  <div class=\"reviews-tabs\">\n    <button class=\"reviews-tab active\" type=\"button\" onclick=\"switchReviewTab('results', this)\">\n      Results\n    </button>\n\n    <button class=\"reviews-tab\" type=\"button\" onclick=\"switchReviewTab('comfort', this)\">\n      Comfort\n    </button>\n\n    <button class=\"reviews-tab\" type=\"button\" onclick=\"switchReviewTab('colors', this)\">\n      Light Modes\n    </button>\n\n    <button class=\"reviews-tab\" type=\"button\" onclick=\"switchReviewTab('ease', this)\">\n      Ease of Use\n    </button>\n\n    <button class=\"reviews-tab\" type=\"button\" onclick=\"switchReviewTab('routine', this)\">\n      Skincare Routine\n    </button>\n  </div>\n\n  <div class=\"reviews-grid\" id=\"led-reviews-grid\"></div>\n\n</div>\n\n<script>\n  const ledMaskReviews = {\n    results: [\n      {\n        text: \"My skin looks brighter and more refreshed after adding this mask to my routine.\",\n        author: \"Lara M.\"\n      },\n      {\n        text: \"I have been using it consistently and my complexion looks smoother and more even.\",\n        author: \"Nour K.\"\n      },\n      {\n        text: \"It gives my skin a healthy-looking glow and makes my skincare routine feel more complete.\",\n        author: \"Maya R.\"\n      }\n    ],\n\n    comfort: [\n      {\n        text: \"The flexible material fits my face comfortably without feeling heavy.\",\n        author: \"Rima H.\"\n      },\n      {\n        text: \"I can relax while wearing it because it feels lightweight and secure.\",\n        author: \"Sara A.\"\n      },\n      {\n        text: \"Much more comfortable than the hard plastic LED masks I have tried before.\",\n        author: \"Dina F.\"\n      }\n    ],\n\n    colors: [\n      {\n        text: \"I love having different light colors depending on what my skin needs that day.\",\n        author: \"Hana S.\"\n      },\n      {\n        text: \"The seven modes make it feel like a complete at-home skincare device.\",\n        author: \"Tanya M.\"\n      },\n      {\n        text: \"Changing between the colors is simple, and the controller is very easy to understand.\",\n        author: \"Celine A.\"\n      }\n    ],\n\n    ease: [\n      {\n        text: \"It only takes a few steps to set up and start a session.\",\n        author: \"Nadine T.\"\n      },\n      {\n        text: \"I clean my face, put on the mask and relax. It is very convenient.\",\n        author: \"Rana K.\"\n      },\n      {\n        text: \"The rechargeable design makes it easy to use without sitting next to a wall outlet.\",\n        author: \"Joelle B.\"\n      }\n    ],\n\n    routine: [\n      {\n        text: \"It has become one of my favorite parts of my evening skincare routine.\",\n        author: \"Carla N.\"\n      },\n      {\n        text: \"I enjoy using it while relaxing at home a few times each week.\",\n        author: \"Yasmine F.\"\n      },\n      {\n        text: \"It makes my regular skincare routine feel more luxurious and professional.\",\n        author: \"Mirna L.\"\n      }\n    ]\n  };\n\n  function renderReviewCards(tab) {\n    const grid = document.getElementById('led-reviews-grid');\n    const reviews = ledMaskReviews[tab];\n\n    grid.innerHTML = reviews.map(function(review) {\n      return `\n        <div class=\"review-card\">\n          <div class=\"review-card-stars\">★★★★★</div>\n          <p class=\"review-card-text\">${review.text}</p>\n          <span class=\"review-card-author\">${review.author}</span>\n        </div>\n      `;\n    }).join('');\n  }\n\n  function switchReviewTab(tab, button) {\n    const section = button.closest('.reviews-section');\n\n    section.querySelectorAll('.reviews-tab').forEach(function(tabButton) {\n      tabButton.classList.remove('active');\n    });\n\n    button.classList.add('active');\n    renderReviewCards(tab);\n  }\n\n  document.addEventListener('DOMContentLoaded', function() {\n    renderReviewCards('results');\n  });\n</script>",
         "full_width": false,
         "show_divider": false,
         "padding_top": 36,
@@ -391,6 +380,7 @@
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
+      "disabled": true,
       "settings": {
         "show_divider": false,
         "heading": "Recently Viewed",
@@ -412,6 +402,29 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "17839833423486ea1e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_LUXB3i": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_LUXB3i"
+      ],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -423,8 +436,8 @@
     "custom_liquid_L9DyJQ",
     "custom_liquid_KTjbVe",
     "custom_liquid_i8k6n6",
-    "custom_liquid_K8YeaH",
-    "guarantees_4jiQMN",
-    "recently-viewed-products"
+    "recently-viewed-products",
+    "17839833423486ea1e",
+    "guarantees_4jiQMN"
   ]
 }
