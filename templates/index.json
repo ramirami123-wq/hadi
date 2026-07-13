@@ -146,12 +146,7 @@
     },
     "zeid_product_hero_nQeKAb": {
       "type": "zeid-product-hero",
-      "custom_css": [
-        ".zbph-section {align-items: stretch; min-height: unset;}",
-        ".zbph-media {min-height: unset; height: 100%;}",
-        ".zbph-img {position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;}",
-        ".zbph-media {position: relative;}"
-      ],
+      "custom_css": [],
       "name": "ZB — Product Hero",
       "settings": {
         "product": "7-color-light-facial-mask-therapy",
