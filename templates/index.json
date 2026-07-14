@@ -69,81 +69,6 @@
         "padding_bottom": 36
       }
     },
-    "guarantees": {
-      "type": "guarantees",
-      "blocks": {
-        "guarantee-0": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "lock",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Secure Checkout",
-            "title_size": "h2",
-            "text": "<p>Your information is encrypted and protected at all times.</p>"
-          }
-        },
-        "guarantee-1": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "truck",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Delivery Across Lebanon",
-            "title_size": "h2",
-            "text": "<p>Orders shipped through local partners for smooth, reliable delivery.</p>"
-          }
-        },
-        "guarantee-2": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "star",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Curated Quality Products",
-            "title_size": "h2",
-            "text": "<p>Every item is carefully selected so you receive products we trust.</p>"
-          }
-        },
-        "guarantee-3": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "silhouette",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "WhatsApp Support",
-            "title_size": "h2",
-            "text": "<p>Message us on WhatsApp for quick help with orders or questions.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee-0",
-        "guarantee-1",
-        "guarantee-2",
-        "guarantee-3"
-      ],
-      "settings": {
-        "layout": "default",
-        "column_alignment": "center",
-        "horizontal_content": false,
-        "full_width": false,
-        "show_divider": false,
-        "columns_desktop": 4,
-        "heading": "Guarantees",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "use_custom_colors": false,
-        "colors_icon": "#ffffff",
-        "colors_text": "#1a1b18",
-        "colors_background": "#ffffff",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "scrolling_promotion_8whPQf": {
       "type": "scrolling-promotion",
       "blocks": {
@@ -231,7 +156,12 @@
     },
     "zeid_before_after_JQ8phb": {
       "type": "zeid-before-after",
-      "custom_css": [],
+      "custom_css": [
+        "/* Button */a[class*=\"btn\"],button[class*=\"btn\"] {background: #111 !important; color: #d4af37 !important; border-color: #d4af37 !important;}",
+        "a[class*=\"btn\"]:hover,button[class*=\"btn\"]:hover {background: #d4af37 !important; color: #111 !important;}",
+        "/* Stars */[class*=\"star\"],[class*=\"rating\"] {color: #d4af37 !important;}",
+        "[class*=\"star\"] svg,[class*=\"rating\"] svg {fill: #d4af37 !important; color: #d4af37 !important;}"
+      ],
       "name": "ZB — Before & After",
       "settings": {
         "product": "freckles-stamp",
@@ -528,6 +458,81 @@
         "heading_tag": "h2",
         "padding_top": 32,
         "padding_bottom": 32
+      }
+    },
+    "guarantees": {
+      "type": "guarantees",
+      "blocks": {
+        "guarantee-0": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "lock",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Secure Checkout",
+            "title_size": "h2",
+            "text": "<p>Your information is encrypted and protected at all times.</p>"
+          }
+        },
+        "guarantee-1": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Delivery Across Lebanon",
+            "title_size": "h2",
+            "text": "<p>Orders shipped through local partners for smooth, reliable delivery.</p>"
+          }
+        },
+        "guarantee-2": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "star",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Curated Quality Products",
+            "title_size": "h2",
+            "text": "<p>Every item is carefully selected so you receive products we trust.</p>"
+          }
+        },
+        "guarantee-3": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "silhouette",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "WhatsApp Support",
+            "title_size": "h2",
+            "text": "<p>Message us on WhatsApp for quick help with orders or questions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee-0",
+        "guarantee-1",
+        "guarantee-2",
+        "guarantee-3"
+      ],
+      "settings": {
+        "layout": "default",
+        "column_alignment": "center",
+        "horizontal_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "columns_desktop": 4,
+        "heading": "Guarantees",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "use_custom_colors": false,
+        "colors_icon": "#ffffff",
+        "colors_text": "#1a1b18",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
