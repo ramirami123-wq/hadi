@@ -69,6 +69,81 @@
         "padding_bottom": 36
       }
     },
+    "guarantees": {
+      "type": "guarantees",
+      "blocks": {
+        "guarantee-0": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "lock",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Secure Checkout",
+            "title_size": "h2",
+            "text": "<p>Your information is encrypted and protected at all times.</p>"
+          }
+        },
+        "guarantee-1": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Delivery Across Lebanon",
+            "title_size": "h2",
+            "text": "<p>Orders shipped through local partners for smooth, reliable delivery.</p>"
+          }
+        },
+        "guarantee-2": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "star",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Curated Quality Products",
+            "title_size": "h2",
+            "text": "<p>Every item is carefully selected so you receive products we trust.</p>"
+          }
+        },
+        "guarantee-3": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "silhouette",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "WhatsApp Support",
+            "title_size": "h2",
+            "text": "<p>Message us on WhatsApp for quick help with orders or questions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee-0",
+        "guarantee-1",
+        "guarantee-2",
+        "guarantee-3"
+      ],
+      "settings": {
+        "layout": "default",
+        "column_alignment": "center",
+        "horizontal_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "columns_desktop": 4,
+        "heading": "Guarantees",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "use_custom_colors": false,
+        "colors_icon": "#ffffff",
+        "colors_text": "#1a1b18",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "scrolling_promotion_8whPQf": {
       "type": "scrolling-promotion",
       "blocks": {
@@ -349,81 +424,6 @@
         "padding_bottom": 12
       }
     },
-    "guarantees": {
-      "type": "guarantees",
-      "blocks": {
-        "guarantee-0": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "lock",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Secure Checkout",
-            "title_size": "h2",
-            "text": "<p>Your information is encrypted and protected at all times.</p>"
-          }
-        },
-        "guarantee-1": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "truck",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Delivery Across Lebanon",
-            "title_size": "h2",
-            "text": "<p>Orders shipped through local partners for smooth, reliable delivery.</p>"
-          }
-        },
-        "guarantee-2": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "star",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "Curated Quality Products",
-            "title_size": "h2",
-            "text": "<p>Every item is carefully selected so you receive products we trust.</p>"
-          }
-        },
-        "guarantee-3": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "silhouette",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "WhatsApp Support",
-            "title_size": "h2",
-            "text": "<p>Message us on WhatsApp for quick help with orders or questions.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee-0",
-        "guarantee-1",
-        "guarantee-2",
-        "guarantee-3"
-      ],
-      "settings": {
-        "layout": "default",
-        "column_alignment": "center",
-        "horizontal_content": false,
-        "full_width": false,
-        "show_divider": false,
-        "columns_desktop": 4,
-        "heading": "Guarantees",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "use_custom_colors": false,
-        "colors_icon": "#ffffff",
-        "colors_text": "#1a1b18",
-        "colors_background": "#ffffff",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "1774973862c01d6f02": {
       "type": "apps",
       "blocks": {
@@ -541,8 +541,8 @@
     "image_with_text_xwUfgU",
     "images_with_text_Bqykin",
     "scrolling_promotion_A79amU",
-    "guarantees",
     "1774973862c01d6f02",
-    "faq_A4adCG"
+    "faq_A4adCG",
+    "guarantees"
   ]
 }
