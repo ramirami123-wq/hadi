@@ -68,7 +68,7 @@
         "enable_transparent_header_collection": false,
         "enable_transparent_header_custom": "",
         "show_transparent_header_border": false,
-        "transparent_text_color": "#FFFFFF",
+        "transparent_text_color": "#ffffff",
         "enable_highlight": false,
         "highlight_labels": "",
         "highlight_style": "marker",
