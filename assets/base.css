@@ -3616,7 +3616,7 @@ span[data-highlight=underline] mark svg path {
 /* The pill goes on the span.label inside the active link */
 .header__active-menu-item .label {
   background: rgba(107, 26, 42, 0.08);
-  color: #6B1A2A !important;
+  color: #D4AF37 !important;
   padding: 7px 16px;
   border-radius: 999px;
   font-weight: 600;
@@ -3655,7 +3655,7 @@ span[data-highlight=underline] mark svg path {
 /* Active/selected media */
 .product__media-item--active,
 .product__media-item:hover {
-  border-color: #6B1A2A;
+  border-color: #D4AF37;
 }
 
 /* Thumbnails row */
@@ -3667,7 +3667,7 @@ span[data-highlight=underline] mark svg path {
 }
 .thumbnail-list .thumbnail-list__item:hover,
 .thumbnail-list .thumbnail-list__item[aria-current="true"] {
-  border-color: #6B1A2A;
+  border-color: #D4AF37;
 }
 
 /* Thumbnail images */
