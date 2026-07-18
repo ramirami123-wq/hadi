@@ -47,14 +47,6 @@
             "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Adjustable Suction Levels</strong> — Choose a comfortable setting to help lift surface buildup and excess oil from targeted areas of the face.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Multiple Interchangeable Heads</strong> — Includes different attachments designed for areas such as the nose, chin, forehead, and cheeks.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Rechargeable & Easy to Use</strong> — The lightweight handheld design makes it convenient to add targeted cleansing to your regular at-home skincare routine.</span>\n  </div>\n\n</div>"
           }
         },
-        "text_bGyyyr": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "dsdsds",
-            "text_style": "body"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -108,7 +100,6 @@
         "price",
         "custom_liquid_7aUMyA",
         "custom_liquid_Hhznye",
-        "text_bGyyyr",
         "variant_picker",
         "buy_buttons",
         "custom_liquid_WfnfH8",
@@ -300,17 +291,6 @@
         "padding_bottom": 36
       }
     },
-    "custom_liquid_i8k6n6": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .faq-section {\n    background: #ffffff;\n    padding: 48px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n  }\n\n  .faq-inner {\n    max-width: 720px;\n    margin: 0 auto;\n  }\n\n  .faq-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111111;\n    text-transform: uppercase;\n    text-align: center;\n    margin: 0 0 8px;\n  }\n\n  .faq-subtitle {\n    font-size: 15px;\n    color: #666666;\n    text-align: center;\n    margin: 0 0 36px;\n  }\n\n  .faq-item {\n    border-bottom: 1px solid #ece7de;\n  }\n\n  .faq-question {\n    width: 100%;\n    background: none;\n    border: none;\n    padding: 18px 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    cursor: pointer;\n    font-family: 'Barlow', Arial, sans-serif;\n    font-size: 15px;\n    font-weight: 700;\n    color: #111111;\n    text-align: left;\n  }\n\n  .faq-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    border-radius: 50%;\n    background: #faf7f1;\n    border: 2px solid #c3a46e;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #111111;\n    transition: 0.3s ease;\n  }\n\n  .faq-question.open .faq-icon {\n    background: #c3a46e;\n    color: #111111;\n    transform: rotate(45deg);\n  }\n\n  .faq-answer {\n    max-height: 0;\n    overflow: hidden;\n    transition: max-height 0.3s ease, padding 0.3s ease;\n  }\n\n  .faq-answer.open {\n    max-height: 300px;\n    padding-bottom: 18px;\n  }\n\n  .faq-answer p {\n    margin: 0;\n    padding: 0 4px;\n    font-size: 14px;\n    line-height: 1.6;\n    color: #555555;\n  }\n</style>\n\n<div class=\"faq-section\">\n  <div class=\"faq-inner\">\n\n    <h2 class=\"faq-title\">Frequently Asked Questions</h2>\n    <p class=\"faq-subtitle\">Everything you need to know about the 7-color LED face mask.</p>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How do I use the LED face mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Clean and dry your face, place the mask comfortably over your skin, connect the controller and select your preferred light mode. Follow the included instructions for the recommended session time.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        What do the seven light colors do?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Each light color is designed to support a different skincare goal, such as improving the appearance of dullness, uneven tone, redness, blemishes or signs of aging.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How often should I use the mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Use it according to the product instructions. A consistent routine is more important than using it for longer or more frequently than recommended.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Can I apply skincare products before using it?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Start with clean, dry skin unless the product instructions state otherwise. Avoid applying products that may cause irritation or increase light sensitivity before your session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Is the mask comfortable to wear?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Yes. Its lightweight, flexible design is made to contour comfortably around the face while allowing you to relax during your skincare session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        When will I notice visible results?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Results vary depending on skin type, routine and consistency. LED skincare is generally intended for gradual improvements rather than instant changes.\n        </p>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  function toggleFaq(button) {\n    const faqSection = button.closest('.faq-section');\n    const answer = button.nextElementSibling;\n    const isOpen = button.classList.contains('open');\n\n    faqSection.querySelectorAll('.faq-question').forEach(function(question) {\n      question.classList.remove('open');\n    });\n\n    faqSection.querySelectorAll('.faq-answer').forEach(function(item) {\n      item.classList.remove('open');\n    });\n\n    if (!isOpen) {\n      button.classList.add('open');\n      answer.classList.add('open');\n    }\n  }\n</script>",
-        "full_width": false,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
       "disabled": true,
@@ -338,20 +318,6 @@
     },
     "17839833423486ea1e": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_LUXB3i": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_LUXB3i"
-      ],
       "settings": {
         "include_margins": true,
         "show_divider": false,
@@ -444,7 +410,6 @@
     "product-recommendations",
     "custom_liquid_L9DyJQ",
     "custom_liquid_KTjbVe",
-    "custom_liquid_i8k6n6",
     "recently-viewed-products",
     "17839833423486ea1e",
     "guarantees_4jiQMN"
