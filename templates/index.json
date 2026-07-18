@@ -23,46 +23,6 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "image_9yMHM4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/premium-beauty-and-wellness-technology-product-display-in-a-modern-home-spa-setting-warm-ivory-background-soft-natural-lighting-subtle-shadows-clean-luxury-ecommerce-photography-minim.png",
-            "image_mobile": "shopify://shop_images/premium-beauty-and-wellness-technology-product-display-in-a-modern-home-spa-setting-warm-ivory-background-soft-natural-lighting-subtle-shadows-clean-luxury-ecommerce-photography-minim.png",
-            "image_position": "center center",
-            "text_box_position": "middle-center",
-            "subheading": "",
-            "subheading_size": "h5",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "heading_tag": "h2",
-            "text": "Give customers details about the slide image or content on the template.",
-            "text_size": "typeset",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_size": "medium",
-            "button_style_secondary": false
-          }
-        },
-        "image_XViewp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/premium-beauty-and-wellness-technology-product-display-in-a-modern-home-spa-setting-warm-ivory-background-soft-natural-lighting-subtle-shadows-clean-luxury-ecommerce-photography-minim.png",
-            "image_mobile": "shopify://shop_images/premium-beauty-and-wellness-technology-product-display-in-a-modern-home-spa-setting-warm-ivory-background-soft-natural-lighting-subtle-shadows-clean-luxury-ecommerce-photography-minim.png",
-            "image_position": "center center",
-            "text_box_position": "middle-center",
-            "subheading": "",
-            "subheading_size": "h5",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "heading_tag": "h2",
-            "text": "Give customers details about the slide image or content on the template.",
-            "text_size": "typeset",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_size": "medium",
-            "button_style_secondary": false
-          }
-        },
         "slide-0": {
           "type": "image",
           "settings": {
@@ -72,10 +32,10 @@
             "text_box_position": "middle-left",
             "subheading": "",
             "subheading_size": "h5",
-            "heading": "Zeid Beauty",
+            "heading": "GloworaTech",
             "heading_size": "h0",
             "heading_tag": "h2",
-            "text": "Beauty tools for your daily routine.",
+            "text": "Beauty & Wellness tools for your daily routine.",
             "text_size": "typeset2",
             "button_label": "Explore the Collection",
             "button_link": "shopify://collections/all",
@@ -85,8 +45,6 @@
         }
       },
       "block_order": [
-        "image_9yMHM4",
-        "image_XViewp",
         "slide-0"
       ],
       "settings": {
