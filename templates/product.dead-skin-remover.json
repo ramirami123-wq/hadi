@@ -47,14 +47,6 @@
             "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Rotating Exfoliating Roller</strong> — Gently buffs away rough, dry-looking surface skin to help leave feet feeling smoother and more refreshed.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Comfortable, Controlled Use</strong> — The ergonomic handle provides a secure grip, making it easy to guide the device around heels, soles and other areas that need extra care.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Rechargeable & Convenient</strong> — Compact, portable and simple to operate, making regular foot care easy to add to your at-home self-care routine.</span>\n  </div>\n\n</div>"
           }
         },
-        "text_bGyyyr": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "dsdsds",
-            "text_style": "body"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -108,7 +100,6 @@
         "price",
         "custom_liquid_7aUMyA",
         "custom_liquid_Hhznye",
-        "text_bGyyyr",
         "variant_picker",
         "buy_buttons",
         "custom_liquid_WfnfH8",
