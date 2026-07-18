@@ -151,6 +151,36 @@
         "padding_bottom": 36
       }
     },
+    "zeid_device_benfits_Fp9ERP": {
+      "type": "zeid-device-benfits",
+      "name": "ZB — Device Benefits",
+      "settings": {
+        "image_caption": "Used daily for best results",
+        "eyebrow": "Clinically inspired",
+        "heading": "Professional results.At home.",
+        "subheading": "Combining 6 proven technologies in one ergonomic device — designed for your face and neck.",
+        "stat_1_number": "94%",
+        "stat_1_label": "saw firmer skin in 4 weeks",
+        "stat_2_number": "6-in-1",
+        "stat_2_label": "technologies in one device",
+        "stat_3_number": "5 min",
+        "stat_3_label": "daily for visible results",
+        "benefit_1_title": "Reduces fine lines & wrinkles",
+        "benefit_1_desc": "Microcurrent and LED therapy work together to visibly smooth skin over time",
+        "benefit_2_title": "Lifts and firms instantly",
+        "benefit_2_desc": "Microcurrent mimics the natural electrical signals that keep muscles toned and lifted",
+        "benefit_3_title": "Boosts serum absorption by up to 4×",
+        "benefit_3_desc": "Gentle heat opens pores so your creams and serums penetrate deeper and work harder",
+        "benefit_4_title": "Improves skin tone & radiance",
+        "benefit_4_desc": "Ultrasonic vibration stimulates circulation for a healthy, natural glow",
+        "benefit_5_title": "Covers face & neck",
+        "benefit_5_desc": "Curved ergonomic head fits the jawline, neck, and cheeks — areas that age fastest",
+        "cta_label": "Shop Now",
+        "cta_link": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "scrolling_promotion_A79amU": {
       "type": "scrolling-promotion",
       "blocks": {
@@ -398,6 +428,7 @@
     "slideshow",
     "scrolling_promotion_8whPQf",
     "images_with_text_Bqykin",
+    "zeid_device_benfits_Fp9ERP",
     "scrolling_promotion_A79amU",
     "1774973862c01d6f02",
     "faq_A4adCG",
