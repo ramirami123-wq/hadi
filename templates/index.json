@@ -20,36 +20,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_EkwwB9": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "frontpage",
-        "products_to_show": 12,
-        "horizontal_scroll": true,
-        "show_view_all": true,
-        "show_divider": false,
-        "heading": "Featured collection",
-        "heading_size": "h1",
-        "heading_alignment": "left",
-        "heading_tag": "h2",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "image_position": "center center",
-        "enable_image_fill": true,
-        "show_secondary_image": false,
-        "secondary_image_max": 1,
-        "show_vendor": false,
-        "show_rating": false,
-        "show_quick_buy": true,
-        "enable_quick_view": true,
-        "enable_color_swatches": true,
-        "enable_countdown": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -96,6 +66,8 @@
         "slide-0": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/create-a-picture-showcasing-beauty-and-wellness-tech-products-keep-it-warm-spa-themeed-and-goldish.png",
+            "image_mobile": "shopify://shop_images/create-a-picture-showcasing-beauty-and-wellness-tech-products-keep-it-warm-spa-themeed-and-goldish.png",
             "image_position": "center center",
             "text_box_position": "middle-left",
             "subheading": "",
@@ -117,7 +89,6 @@
         "image_XViewp",
         "slide-0"
       ],
-      "disabled": true,
       "settings": {
         "slideshow_type": "legacy",
         "text_alignment": "left",
@@ -130,7 +101,7 @@
         "mobile_image_ratio": "600px",
         "show_text_below": false,
         "colors_button_label": "#ffffff",
-        "colors_button_background": "#611a20",
+        "colors_button_background": "#c3a46e",
         "colors_text": "#ffffff",
         "colors_background": "#ffffff",
         "colors_overlay": "#1a1b18",
@@ -171,72 +142,6 @@
         "gradient_background": "",
         "padding_top": 12,
         "padding_bottom": 12
-      }
-    },
-    "image_with_text_xwUfgU": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_Mn7R8U": {
-          "type": "heading",
-          "settings": {
-            "heading": "Everyday Beauty, Simplified",
-            "heading_size": "h1",
-            "heading_tag": "h2"
-          }
-        },
-        "text_wxL4Rz": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Discover thoughtfully chosen essentials for hair, skin, and beauty tools—designed to elevate your daily routine. Effortlessly enhance your natural look with products that make feeling confident and polished part of your everyday life.</p>",
-            "text_size": "typeset2",
-            "secondary_color": false
-          }
-        },
-        "button_4bdPtM": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop This Product",
-            "button_link": "shopify://products/hair-concealer",
-            "button_size": "medium",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Mn7R8U",
-        "text_wxL4Rz",
-        "button_4bdPtM"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".image-with-text img {border-radius: 24px; overflow: hidden; background-color: white;}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/premium-beauty-and-wellness-technology-product-display-in-a-modern-home-spa-setting-warm-ivory-background-soft-natural-lighting-subtle-shadows-clean-luxury-ecommerce-photography-minim.png",
-        "image_position": "center center",
-        "layout": "image_first",
-        "text_box_position": "middle",
-        "text_alignment": "left",
-        "image_ratio": "600px",
-        "enlarge_content": false,
-        "full_width": false,
-        "show_divider": false,
-        "secondary_background": false,
-        "image_behavior": "none",
-        "mobile_layout": "image_first",
-        "mobile_text_alignment": "left",
-        "mobile_image_ratio": "auto",
-        "enable_video_looping": false,
-        "video_url": "",
-        "use_custom_colors": false,
-        "colors_button_label": "#ffffff",
-        "colors_button_background": "#1a1b18",
-        "colors_text": "#212326",
-        "colors_background": "#ffffff",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "images_with_text_Bqykin": {
@@ -524,18 +429,21 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "17843987295c29f88b": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
     "custom_liquid_inRyAt",
-    "featured_collection_EkwwB9",
     "slideshow",
     "scrolling_promotion_8whPQf",
-    "image_with_text_xwUfgU",
     "images_with_text_Bqykin",
     "scrolling_promotion_A79amU",
     "1774973862c01d6f02",
     "faq_A4adCG",
-    "guarantees"
+    "guarantees",
+    "17843987295c29f88b"
   ]
 }
