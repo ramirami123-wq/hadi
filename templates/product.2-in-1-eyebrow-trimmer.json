@@ -185,6 +185,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jul_19_2026_01_41_35_AM_1.png",
         "image_position": "center center",
         "layout": "image_first",
         "text_box_position": "middle",
