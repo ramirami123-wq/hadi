@@ -1,0 +1,443 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "custom_liquid_apFQp8": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .star-review-wrapper {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-shrink: 0;\n  }\n\n  .star-icons svg {\n    width: 20px;\n    height: 20px;\n    fill: #D2D2D2; /* Your deep red color */\n  }\n\n  .review-text {\n    font-size: 16px;\n    font-weight: 500;\n    color: #333;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 480px) {\n    .star-review-wrapper {\n      flex-direction: row;\n      justify-content: center;\n    }\n\n    .review-text {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<div class=\"star-review-wrapper\">\n  <div class=\"star-icons\">\n    <!-- 5 Rounded Stars -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n  </div>\n  <div class=\"review-text\">\n    <strong>5</strong> by <strong>124+</strong> Customers\n  </div>\n</div>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1",
+            "show_price": false,
+            "price_size": "medium"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_size": "medium",
+            "show_badges": true,
+            "sale_badge_basis": "auto"
+          }
+        },
+        "custom_liquid_7aUMyA": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<section class=\"sale-timer\" aria-label=\"Sale countdown timer\">\n  <style>\n    .sale-timer{\n      width:100%;\n      padding:22px 12px;\n      display:flex;\n      justify-content:center;\n      background:#ffff;\n      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;\n    }\n    .sale-timer__wrap{\n      text-align:center;\n    }\n    .sale-timer__label{\n      font-size:24px;\n      font-weight:500;\n      color:#111;\n      margin:0 0 14px 0;\n      line-height:1.1;\n    }\n\n    .sale-timer__row{\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      gap:10px;\n    }\n\n    .sale-timer__box{\n      width:88px;\n      height:68px;\n      background:#111;\n      color:#c3a46e;\n      border-radius:6px;\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      font-size:34px;\n      font-weight:700;\n      letter-spacing:1px;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .sale-timer__colon{\n      font-size:32px;\n      font-weight:700;\n      color:#00000;\n      line-height:1;\n      transform: translateY(-1px);\n      user-select:none;\n    }\n\n    @media (max-width:420px){\n      .sale-timer__label{ font-size:20px; }\n      .sale-timer__box{ width:72px; height:58px; font-size:30px; }\n      .sale-timer__colon{ font-size:28px; }\n      .sale-timer__row{ gap:8px; }\n    }\n  </style>\n\n  <div class=\"sale-timer__wrap\">\n    <div class=\"sale-timer__label\">Hurry! Sale ends in</div>\n\n    <div class=\"sale-timer__row\" role=\"timer\" aria-live=\"polite\">\n      <div class=\"sale-timer__box\" id=\"st-hours\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-mins\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-secs\">00</div>\n    </div>\n  </div>\n\n  <script>\n    (function () {\n      const durationHours = 12; // change if needed\n      const endAt = Date.now() + durationHours * 60 * 60 * 1000;\n\n      const h = document.getElementById(\"st-hours\");\n      const m = document.getElementById(\"st-mins\");\n      const s = document.getElementById(\"st-secs\");\n\n      const pad = n => String(n).padStart(2, \"0\");\n\n      function update(){\n        let diff = endAt - Date.now();\n        if(diff < 0) diff = 0;\n\n        const total = Math.floor(diff / 1000);\n        h.textContent = pad(Math.floor(total / 3600));\n        m.textContent = pad(Math.floor((total % 3600) / 60));\n        s.textContent = pad(total % 60);\n\n        if(diff === 0) clearInterval(timer);\n      }\n\n      update();\n      const timer = setInterval(update, 1000);\n    })();\n  </script>\n</section>"
+          }
+        },
+        "custom_liquid_Hhznye": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">7-Color LED Light Therapy</strong> — Choose from seven light settings designed to complement different skincare routines and support a refreshed-looking complexion.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Flexible, Comfortable Fit</strong> — The lightweight mask gently contours around the face for a comfortable and relaxing at-home skincare session.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Simple At-Home Self-Care</strong> — Rechargeable, portable, and easy to operate, making LED skincare convenient to enjoy as part of your regular routine.</span>\n  </div>\n\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "swatches_source": "file",
+            "swatch_type": "round",
+            "enable_swatch_cross": true,
+            "enable_swatch_unavailable_click": false,
+            "size_chart": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_WfnfH8": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"padding: 12px; text-align: left; background-color: #f5f5f5; font-size: 15px; border-radius: 13px; margin-top: 12px; margin-bottom: 12px; display: flex; align-items: center;\">\n  <span style=\"margin-right: 10px; flex-shrink: 0;\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\" fill=\"#111\">\n      <path d=\"M240-160q-50 0-85-35t-35-85H40v-440q0-33 23.5-56.5T120-800h560v160h120l120 160v200h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85H360q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T280-280q0-17-11.5-28.5T240-320q-17 0-28.5 11.5T200-280q0 17 11.5 28.5T240-240ZM120-360h32q17-18 39-29t49-11q27 0 49 11t39 29h272v-360H120v360Zm600 120q17 0 28.5-11.5T760-280q0-17-11.5-28.5T720-320q-17 0-28.5 11.5T680-280q0 17 11.5 28.5T720-240Zm-40-200h170l-90-120h-80v120ZM360-540Z\"/>\n    </svg>\n  </span>\n  <span style=\"font-size: 15px; color: #333;\">\n    Order now to receive between <span id=\"delivery-dates\" style=\"font-weight: bold; color: #111;\"></span>\n  </span>\n</div>\n\n<script>\n  (function() {\n    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];\n    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];\n\n    function formatDate(date) {\n      return days[date.getDay()] + ' ' + date.getDate() + ' ' + months[date.getMonth()];\n    }\n\n    var min = new Date(); min.setDate(min.getDate() + 4);\n    var max = new Date(); max.setDate(max.getDate() + 7);\n\n    if (min.getDay() === 0) min.setDate(min.getDate() + 1);\n    if (max.getDay() === 0) max.setDate(max.getDate() + 1);\n\n    document.getElementById('delivery-dates').textContent = formatDate(min) + ' – ' + formatDate(max);\n  })();\n</script>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "related_buttons": {
+          "type": "related_buttons",
+          "disabled": true,
+          "settings": {
+            "show_icons": false
+          }
+        },
+        "sticky_cart": {
+          "type": "sticky_cart",
+          "settings": {
+            "show_quantity_selector": false
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_apFQp8",
+        "title",
+        "price",
+        "custom_liquid_7aUMyA",
+        "custom_liquid_Hhznye",
+        "variant_picker",
+        "buy_buttons",
+        "custom_liquid_WfnfH8",
+        "share",
+        "related_buttons",
+        "sticky_cart"
+      ],
+      "custom_css": [
+        ".caption {display: none;}",
+        ".product-form__submit {animation: shopifyshake 4s; animation-iteration-count: infinite;}"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_position": "left",
+        "media_size": "medium",
+        "gallery_layout": "thumbnail_slider",
+        "image_ratio": "adapt",
+        "show_featured_media": false,
+        "show_thumbnails": true,
+        "hide_variants": true,
+        "enable_image_zoom": false,
+        "enable_video_looping": false,
+        "mobile_image_ratio": "adapt_first",
+        "show_mobile_thumbnails": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "scrolling_promotion_rmDndU": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_GMVprA": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "text": "“Your New Beauty Routine Essential”",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_GMVprA"
+      ],
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#f1ff34",
+        "colors_text": "#c3a46e",
+        "colors_background": "#f2f2f2",
+        "gradient_background": "linear-gradient(343deg, rgba(0, 0, 0, 1) 15%, rgba(17, 17, 17, 1) 15%)",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "image_with_text_bAEx6B": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7kaWz7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Relax, Refresh & Rejuvenate",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_KfiiEt": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Turn your skincare routine into a calming moment of self-care. This lightweight LED mask combines seven light modes with a comfortable, hands-free design for a relaxing spa-inspired experience at home.<br/><br/></p>",
+            "text_size": "typeset2",
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7kaWz7",
+        "text_KfiiEt"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1773746678_phps9rukunemtjbfu7oDKc.jpg",
+        "image_position": "center center",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "left",
+        "image_ratio": "650px",
+        "enlarge_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "secondary_background": false,
+        "image_behavior": "none",
+        "image_mobile": "shopify://shop_images/1773746678_phps9rukunemtjbfu7oDKc.jpg",
+        "mobile_layout": "image_first",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "auto",
+        "enable_video_looping": false,
+        "video_url": "",
+        "use_custom_colors": false,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scrolling-promotion": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement-3": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "text": "Glow With Every Session",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-3"
+      ],
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#f1ff34",
+        "colors_text": "#c3a46e",
+        "colors_background": "#f2f2f2",
+        "gradient_background": "linear-gradient(310deg, rgba(17, 17, 17, 1) 15%, rgba(17, 17, 17, 1) 43%)",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "product_list_limit": 4,
+        "show_divider": false,
+        "heading": "You May Also Like",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_quick_buy": false,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_L9DyJQ": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .hurry-section {\n    background: #ffffff;\n    padding: 40px 24px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n    text-align: center;\n  }\n\n  .hurry-title {\n    font-size: 36px;\n    font-weight: 900;\n    color: #000000;\n    text-transform: uppercase;\n    line-height: 1.1;\n    margin: 0 0 12px;\n  }\n\n  .hurry-subtitle {\n    font-size: 15px;\n    color: #000000;\n    margin: 0 0 28px;\n  }\n\n  .hurry-bullets {\n    list-style: none;\n    padding: 0;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: column;\n    gap: 16px;\n    text-align: left;\n    max-width: 620px;\n  }\n\n  .hurry-bullet {\n    display: flex;\n    gap: 14px;\n    font-size: 15px;\n    color: #000000;\n  }\n\n  .hurry-check {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n  }\n</style>\n\n<div class=\"hurry-section\">\n  <h2 class=\"hurry-title\">\n    Brighter Skin Starts Here<br>\n    Glow With Confidence\n  </h2>\n\n  <p class=\"hurry-subtitle\">\n    Use the 7-Color LED Face Mask so you can...\n  </p>\n\n  <ul class=\"hurry-bullets\">\n\n    <li class=\"hurry-bullet\">\n      <svg class=\"hurry-check\" viewBox=\"0 0 28 28\" fill=\"none\">\n        <circle cx=\"14\" cy=\"14\" r=\"13\" fill=\"#c3a46e\"/>\n        <path d=\"M8 14.5L12 18.5L20 10\" stroke=\"#000000\" stroke-width=\"2.2\"/>\n      </svg>\n      <span>\n        Choose from seven LED light modes designed to support different skincare concerns.\n      </span>\n    </li>\n\n    <li class=\"hurry-bullet\">\n      <svg class=\"hurry-check\" viewBox=\"0 0 28 28\" fill=\"none\">\n        <circle cx=\"14\" cy=\"14\" r=\"13\" fill=\"#c3a46e\"/>\n        <path d=\"M8 14.5L12 18.5L20 10\" stroke=\"#000000\" stroke-width=\"2.2\"/>\n      </svg>\n      <span>\n        Support a smoother, brighter and more refreshed-looking complexion from home.\n      </span>\n    </li>\n\n    <li class=\"hurry-bullet\">\n      <svg class=\"hurry-check\" viewBox=\"0 0 28 28\" fill=\"none\">\n        <circle cx=\"14\" cy=\"14\" r=\"13\" fill=\"#c3a46e\"/>\n        <path d=\"M8 14.5L12 18.5L20 10\" stroke=\"#000000\" stroke-width=\"2.2\"/>\n      </svg>\n      <span>\n        Enjoy a flexible, lightweight design that sits comfortably against your face.\n      </span>\n    </li>\n\n    <li class=\"hurry-bullet\">\n      <svg class=\"hurry-check\" viewBox=\"0 0 28 28\" fill=\"none\">\n        <circle cx=\"14\" cy=\"14\" r=\"13\" fill=\"#c3a46e\"/>\n        <path d=\"M8 14.5L12 18.5L20 10\" stroke=\"#000000\" stroke-width=\"2.2\"/>\n      </svg>\n      <span>\n        Add convenient LED light therapy to your regular skincare routine without salon visits.\n      </span>\n    </li>\n\n  </ul>\n</div>",
+        "full_width": false,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_KTjbVe": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .compare-section {\n    background: #ffffff;\n    padding: 48px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n    text-align: center;\n  }\n\n  .compare-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111;\n    text-transform: uppercase;\n    margin: 0 0 8px;\n  }\n\n  .compare-subtitle {\n    font-size: 15px;\n    color: #666;\n    margin: 0 0 32px;\n  }\n\n  .compare-wrapper {\n    max-width: 780px;\n    margin: 0 auto;\n    border-radius: 16px;\n    overflow: hidden;\n    box-shadow: 0 4px 32px rgba(195, 164, 110, 0.18);\n  }\n\n  .compare-header {\n    display: grid;\n    grid-template-columns: 2fr 1fr 1fr;\n    background: #111111;\n  }\n\n  .compare-header-cell {\n    padding: 16px 12px;\n    font-size: 13px;\n    font-weight: 800;\n    color: #d5d5d5;\n  }\n\n  .compare-header-cell.us {\n    background: #c3a46e;\n    color: #111111;\n  }\n\n  .compare-row {\n    display: grid;\n    grid-template-columns: 2fr 1fr 1fr;\n    border-top: 1px solid #ececec;\n    background: #ffffff;\n  }\n\n  .compare-cell {\n    padding: 16px;\n    display: flex;\n    justify-content: center;\n    border-left: 1px solid #ececec;\n  }\n\n  .compare-cell:first-child {\n    justify-content: flex-start;\n    border-left: none;\n    font-weight: 600;\n    color: #111;\n  }\n\n  .compare-cell.us-col {\n    background: #faf7f1;\n  }\n\n  .check,\n  .cross {\n    width: 26px;\n    height: 26px;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: bold;\n  }\n\n  .check {\n    background: #c3a46e;\n    color: #111111;\n  }\n\n  .cross {\n    background: #ececec;\n    color: #999999;\n  }\n</style>\n\n<div class=\"compare-section\">\n\n  <h2 class=\"compare-title\">Why Choose Our LED Face Mask?</h2>\n  <p class=\"compare-subtitle\">See why it's the smarter choice for your skincare routine.</p>\n\n  <div class=\"compare-wrapper\">\n\n    <div class=\"compare-header\">\n      <div class=\"compare-header-cell\">Features</div>\n      <div class=\"compare-header-cell us\">✦ Ours</div>\n      <div class=\"compare-header-cell\">Others</div>\n    </div>\n\n    <div class=\"compare-row\">\n      <div class=\"compare-cell\">7 LED Light Therapy Colors</div>\n      <div class=\"compare-cell us-col\"><span class=\"check\">✓</span></div>\n      <div class=\"compare-cell\"><span class=\"cross\">✗</span></div>\n    </div>\n\n    <div class=\"compare-row\">\n      <div class=\"compare-cell\">Flexible & Comfortable Silicone Design</div>\n      <div class=\"compare-cell us-col\"><span class=\"check\">✓</span></div>\n      <div class=\"compare-cell\"><span class=\"cross\">✗</span></div>\n    </div>\n\n    <div class=\"compare-row\">\n      <div class=\"compare-cell\">Rechargeable & Portable</div>\n      <div class=\"compare-cell us-col\"><span class=\"check\">✓</span></div>\n      <div class=\"compare-cell\"><span class=\"cross\">✗</span></div>\n    </div>\n\n    <div class=\"compare-row\">\n      <div class=\"compare-cell\">Comfortable At-Home Treatments</div>\n      <div class=\"compare-cell us-col\"><span class=\"check\">✓</span></div>\n      <div class=\"compare-cell\"><span class=\"cross\">✗</span></div>\n    </div>\n\n    <div class=\"compare-row\">\n      <div class=\"compare-cell\">Professional Spa-Like Experience</div>\n      <div class=\"compare-cell us-col\"><span class=\"check\">✓</span></div>\n      <div class=\"compare-cell\"><span class=\"cross\">✗</span></div>\n    </div>\n\n  </div>\n\n</div>",
+        "full_width": false,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_i8k6n6": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .faq-section {\n    background: #ffffff;\n    padding: 48px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n  }\n\n  .faq-inner {\n    max-width: 720px;\n    margin: 0 auto;\n  }\n\n  .faq-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111111;\n    text-transform: uppercase;\n    text-align: center;\n    margin: 0 0 8px;\n  }\n\n  .faq-subtitle {\n    font-size: 15px;\n    color: #666666;\n    text-align: center;\n    margin: 0 0 36px;\n  }\n\n  .faq-item {\n    border-bottom: 1px solid #ece7de;\n  }\n\n  .faq-question {\n    width: 100%;\n    background: none;\n    border: none;\n    padding: 18px 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    cursor: pointer;\n    font-family: 'Barlow', Arial, sans-serif;\n    font-size: 15px;\n    font-weight: 700;\n    color: #111111;\n    text-align: left;\n  }\n\n  .faq-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    border-radius: 50%;\n    background: #faf7f1;\n    border: 2px solid #c3a46e;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #111111;\n    transition: 0.3s ease;\n  }\n\n  .faq-question.open .faq-icon {\n    background: #c3a46e;\n    color: #111111;\n    transform: rotate(45deg);\n  }\n\n  .faq-answer {\n    max-height: 0;\n    overflow: hidden;\n    transition: max-height 0.3s ease, padding 0.3s ease;\n  }\n\n  .faq-answer.open {\n    max-height: 300px;\n    padding-bottom: 18px;\n  }\n\n  .faq-answer p {\n    margin: 0;\n    padding: 0 4px;\n    font-size: 14px;\n    line-height: 1.6;\n    color: #555555;\n  }\n</style>\n\n<div class=\"faq-section\">\n  <div class=\"faq-inner\">\n\n    <h2 class=\"faq-title\">Frequently Asked Questions</h2>\n    <p class=\"faq-subtitle\">Everything you need to know about the 7-color LED face mask.</p>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How do I use the LED face mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Clean and dry your face, place the mask comfortably over your skin, connect the controller and select your preferred light mode. Follow the included instructions for the recommended session time.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        What do the seven light colors do?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Each light color is designed to support a different skincare goal, such as improving the appearance of dullness, uneven tone, redness, blemishes or signs of aging.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How often should I use the mask?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Use it according to the product instructions. A consistent routine is more important than using it for longer or more frequently than recommended.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Can I apply skincare products before using it?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Start with clean, dry skin unless the product instructions state otherwise. Avoid applying products that may cause irritation or increase light sensitivity before your session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Is the mask comfortable to wear?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Yes. Its lightweight, flexible design is made to contour comfortably around the face while allowing you to relax during your skincare session.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        When will I notice visible results?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Results vary depending on skin type, routine and consistency. LED skincare is generally intended for gradual improvements rather than instant changes.\n        </p>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  function toggleFaq(button) {\n    const faqSection = button.closest('.faq-section');\n    const answer = button.nextElementSibling;\n    const isOpen = button.classList.contains('open');\n\n    faqSection.querySelectorAll('.faq-question').forEach(function(question) {\n      question.classList.remove('open');\n    });\n\n    faqSection.querySelectorAll('.faq-answer').forEach(function(item) {\n      item.classList.remove('open');\n    });\n\n    if (!isOpen) {\n      button.classList.add('open');\n      answer.classList.add('open');\n    }\n  }\n</script>",
+        "full_width": false,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "show_divider": false,
+        "heading": "Recently Viewed",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17839833423486ea1e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_LUXB3i": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_LUXB3i"
+      ],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "guarantees_4jiQMN": {
+      "type": "guarantees",
+      "blocks": {
+        "guarantee_tXThNR": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "lock",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Secure Checkout",
+            "title_size": "h3",
+            "text": ""
+          }
+        },
+        "guarantee_EUwJCY": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Delivery Across Lebanon",
+            "title_size": "h3",
+            "text": ""
+          }
+        },
+        "guarantee_Rgd4Yy": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "star",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "Curated Quality Products",
+            "title_size": "h3",
+            "text": ""
+          }
+        },
+        "guarantee_PNTJX8": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "silhouette",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "WhatsApp Support",
+            "title_size": "h3",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "guarantee_tXThNR",
+        "guarantee_EUwJCY",
+        "guarantee_Rgd4Yy",
+        "guarantee_PNTJX8"
+      ],
+      "name": "t:sections.guarantees.presets.name",
+      "settings": {
+        "layout": "default",
+        "column_alignment": "center",
+        "horizontal_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "columns_desktop": 4,
+        "heading": "Guarantees",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "use_custom_colors": false,
+        "colors_icon": "#ffffff",
+        "colors_text": "#1a1b18",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 20,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "main",
+    "scrolling_promotion_rmDndU",
+    "image_with_text_bAEx6B",
+    "scrolling-promotion",
+    "product-recommendations",
+    "custom_liquid_L9DyJQ",
+    "custom_liquid_KTjbVe",
+    "custom_liquid_i8k6n6",
+    "recently-viewed-products",
+    "17839833423486ea1e",
+    "guarantees_4jiQMN"
+  ]
+}
