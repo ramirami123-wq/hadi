@@ -44,7 +44,7 @@
         "custom_liquid_Hhznye": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">7-Color LED Light Therapy</strong> — Choose from seven light modes designed to support different skincare concerns and improve your overall complexion.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Flexible, Comfortable Fit</strong> — The soft, lightweight mask contours naturally to your face for a secure and relaxing treatment.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Easy At-Home Skincare</strong> — Rechargeable and simple to operate, making it easy to add LED therapy to your regular beauty routine.</span>\n  </div>\n\n</div>"
+            "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">7-Color LED Light Therapy</strong> — CChoose from seven light settings designed to complement different skincare routines and support a refreshed-looking complexion.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Flexible, Comfortable Fit</strong> — The lightweight mask gently contours around the face for a comfortable and relaxing at-home skincare session.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Simple At-Home Self-Care</strong> — Rechargeable, portable, and easy to operate, making LED skincare convenient to enjoy as part of your regular routine.</span>\n  </div>\n\n</div>"
           }
         },
         "variant_picker": {
@@ -173,7 +173,7 @@
         "text_KfiiEt": {
           "type": "text",
           "settings": {
-            "text": "<p>Whether you're unwinding after a busy day or adding a boost to your beauty routine, this lightweight LED mask supports healthier-looking skin while delivering a calming spa-like experience.</p>",
+            "text": "<p><br/>Turn your skincare routine into a calming moment of self-care. This lightweight LED mask combines seven light modes with a comfortable, hands-free design for a relaxing spa-inspired experience at home.<br/><br/></p>",
             "text_size": "typeset2",
             "secondary_color": false
           }
@@ -302,6 +302,54 @@
         "padding_bottom": 36
       }
     },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "show_divider": false,
+        "heading": "Recently Viewed",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17839833423486ea1e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_LUXB3i": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_LUXB3i"
+      ],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "guarantees_4jiQMN": {
       "type": "guarantees",
       "blocks": {
@@ -376,54 +424,6 @@
         "gradient_background": "",
         "padding_top": 20,
         "padding_bottom": 32
-      }
-    },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "disabled": true,
-      "settings": {
-        "show_divider": false,
-        "heading": "Recently Viewed",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "heading_tag": "h2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "image_ratio": "portrait",
-        "image_position": "center center",
-        "enable_image_fill": true,
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": true,
-        "show_quick_buy": true,
-        "enable_quick_view": true,
-        "enable_color_swatches": true,
-        "enable_countdown": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "17839833423486ea1e": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_LUXB3i": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_LUXB3i"
-      ],
-      "settings": {
-        "include_margins": true,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     }
   },
