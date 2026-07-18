@@ -47,14 +47,6 @@
             "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Comforting Heat Settings</strong> — Delivers gentle, adjustable warmth designed to create a relaxing and comforting experience during everyday rest and self-care.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Wearable, Hands-Free Design</strong> — The adjustable strap helps keep the pad comfortably positioned around the waist or lower abdomen while sitting, resting, or moving around at home.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Portable & Easy to Use</strong> — Compact controls and a lightweight design make it simple to personalize your comfort and include warmth in your regular relaxation routine.</span>\n  </div>\n\n</div>"
           }
         },
-        "text_bGyyyr": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "dsdsds",
-            "text_style": "body"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -108,7 +100,6 @@
         "price",
         "custom_liquid_7aUMyA",
         "custom_liquid_Hhznye",
-        "text_bGyyyr",
         "variant_picker",
         "buy_buttons",
         "custom_liquid_WfnfH8",
