@@ -267,56 +267,56 @@
           "type": "question",
           "settings": {
             "title": "Are the products safe to use?",
-            "text": "<p>Yes, all our products are sourced from trusted suppliers and are safe for everyday use.<br/>You can find usage instructions and details on each product page.</p>"
+            "text": "<p><br/>Our products are designed for at-home beauty and wellness routines when used according to the provided instructions. Always review the product-specific directions and warnings before use. Stop using the product if you experience discomfort or irritation. Customers who are pregnant, have a medical condition, or use an implanted medical device should consult a healthcare professional before using electronic, heated, or microcurrent products.<br/><br/></p>"
           }
         },
         "question_9wPzUR": {
           "type": "question",
           "settings": {
-            "title": "What if I receive a damaged or defective item?",
-            "text": "<p>If an item arrives damaged or not working, we will replace it.<br/>Please contact us within 48 hours of delivery through email or WhatsApp.</p>"
+            "title": "2. What should I do if my item arrives damaged or defective?",
+            "text": "<p><br/>Please contact us within 24 hours of receiving your order and include clear photos or a short video showing the issue. Once reviewed, our support team will help arrange an eligible replacement or refund.<br/><br/></p>"
           }
         },
         "question_hPz4h6": {
           "type": "question",
           "settings": {
             "title": "Can I cancel my order?",
-            "text": "<p>Yes, we can cancel orders as long as they haven’t been shipped yet.<br/>Once the courier has picked up your order, we can no longer cancel it.</p>"
+            "text": "<p>You may request a cancellation before your order has been prepared or dispatched. Once the package has been handed to the delivery company, cancellation may no longer be possible. Contact us as soon as possible through WhatsApp for assistance.</p>"
           }
         },
         "question_6mMfQ4": {
           "type": "question",
           "settings": {
             "title": "How can I contact customer support?",
-            "text": "<p>You can always reach us at:<br/>📧 <a>hello@zeidbeauty.com</a><br/>📱 WhatsApp: +961 79 010 758</p>"
+            "text": "<p>You can always reach us at:<br/>📱 WhatsApp: +961 81 944 746</p>"
           }
         },
         "question_BgCjz4": {
           "type": "question",
           "settings": {
             "title": "How can I track my order?",
-            "text": "<p>After your order is shipped, our local courier will message or call you with delivery updates.<br/>You can also reach out to us anytime if you need help.</p>"
+            "text": "<p>You will receive an order confirmation after placing your order. Once it has been dispatched, the delivery company may contact you directly to coordinate delivery. You can also message us through WhatsApp for an update on your order.</p>"
           }
         },
         "question_WHh8pf": {
           "type": "question",
           "settings": {
             "title": "How does delivery work and how long does it take?",
-            "text": "<p>We ship using trusted local couriers to ensure fast and reliable delivery. Once your order is processed, the courier will contact you by message or phone to confirm the delivery details. Most orders arrive within 2 to 5 business days anywhere in Lebanon. At the moment, we deliver within Lebanon only and do not offer international shipping.</p>"
+            "text": "<p><br/>We deliver across Lebanon. Most orders arrive within approximately 4–7 business days, depending on the destination and courier availability. Delivery may take slightly longer during holidays, promotions, or periods of high demand.<br/><br/></p>"
           }
         },
         "question_4pwiTr": {
           "type": "question",
           "settings": {
             "title": "Do you offer refunds?",
-            "text": "<p>Refunds are provided for damaged or incorrect items after review.<br/>If approved, refunds are processed using the original payment method.</p>"
+            "text": "<p><br/>Refunds or replacements may be offered for eligible damaged, defective, or incorrect products reported within 24 hours of delivery. For hygiene reasons, opened personal-care and beauty products cannot normally be returned unless they are defective.<br/><br/></p>"
           }
         },
         "question_LBPPLa": {
           "type": "question",
           "settings": {
             "title": "What payment methods do you accept?",
-            "text": "<p>We accept:</p><ul><li><strong>Cash on Delivery</strong></li></ul><p></p>"
+            "text": "<p>We accept:</p><ul><li><strong>Cash on Delivery</strong></li><li><strong>Whish Money</strong></li></ul><p></p>"
           }
         }
       },
