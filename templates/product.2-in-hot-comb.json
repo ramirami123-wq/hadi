@@ -47,14 +47,6 @@
             "custom_liquid": "<div style=\"padding: 16px; background-color: #f9f9f9; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.5; font-family: Arial, sans-serif;\">\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">7-Color LED Light Therapy</strong> — Choose from seven light settings designed to complement different skincare routines and support a refreshed-looking complexion.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Flexible, Comfortable Fit</strong> — The lightweight mask gently contours around the face for a comfortable and relaxing at-home skincare session.</span>\n  </div>\n\n  <div style=\"height: 1px; background: #e8e8e8; margin-bottom: 12px;\"></div>\n\n  <div style=\"display: flex; align-items: flex-start; gap: 10px;\">\n    <span style=\"color: #333;\"><strong style=\"color: #111; font-weight: 700;\">Simple At-Home Self-Care</strong> — Rechargeable, portable, and easy to operate, making LED skincare convenient to enjoy as part of your regular routine.</span>\n  </div>\n\n</div>"
           }
         },
-        "text_bGyyyr": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "dsdsds",
-            "text_style": "body"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -108,7 +100,6 @@
         "price",
         "custom_liquid_7aUMyA",
         "custom_liquid_Hhznye",
-        "text_bGyyyr",
         "variant_picker",
         "buy_buttons",
         "custom_liquid_WfnfH8",
