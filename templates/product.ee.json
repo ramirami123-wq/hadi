@@ -291,33 +291,8 @@
         "padding_bottom": 36
       }
     },
-    "custom_liquid_i8k6n6": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<link href=\"https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .faq-section {\n    background: #ffffff;\n    padding: 48px 16px;\n    width: 100%;\n    box-sizing: border-box;\n    font-family: 'Barlow', Arial, sans-serif;\n  }\n\n  .faq-inner {\n    max-width: 720px;\n    margin: 0 auto;\n  }\n\n  .faq-title {\n    font-size: 28px;\n    font-weight: 900;\n    color: #111111;\n    text-transform: uppercase;\n    text-align: center;\n    margin: 0 0 8px;\n  }\n\n  .faq-subtitle {\n    font-size: 15px;\n    color: #666666;\n    text-align: center;\n    margin: 0 0 36px;\n  }\n\n  .faq-item {\n    border-bottom: 1px solid #ece7de;\n  }\n\n  .faq-question {\n    width: 100%;\n    background: none;\n    border: none;\n    padding: 18px 4px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    cursor: pointer;\n    font-family: 'Barlow', Arial, sans-serif;\n    font-size: 15px;\n    font-weight: 700;\n    color: #111111;\n    text-align: left;\n  }\n\n  .faq-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    border-radius: 50%;\n    background: #faf7f1;\n    border: 2px solid #c3a46e;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #111111;\n    transition: 0.3s ease;\n  }\n\n  .faq-question.open .faq-icon {\n    background: #c3a46e;\n    color: #111111;\n    transform: rotate(45deg);\n  }\n\n  .faq-answer {\n    max-height: 0;\n    overflow: hidden;\n    transition: max-height 0.3s ease, padding 0.3s ease;\n  }\n\n  .faq-answer.open {\n    max-height: 320px;\n    padding-bottom: 18px;\n  }\n\n  .faq-answer p {\n    margin: 0;\n    padding: 0 4px;\n    font-size: 14px;\n    line-height: 1.6;\n    color: #555555;\n  }\n</style>\n\n<div class=\"faq-section\">\n  <div class=\"faq-inner\">\n\n    <h2 class=\"faq-title\">Frequently Asked Questions</h2>\n    <p class=\"faq-subtitle\">\n      Everything you need to know about the facial and neck massager.\n    </p>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How do I use the facial and neck massager?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Apply your preferred serum, cream or conductive gel, turn on the device and select a mode. Glide the curved massage head gently upward across your neck, jawline and face without pressing too hard.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        What are the three operating modes?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          The device includes cleansing mode with green light and vibration, hot mode with red light, warmth and vibration, and EMS mode with blue light, vibration and microcurrent.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Do I need to use a skincare product with it?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          A serum, moisturizer or suitable conductive gel can help the massage head glide smoothly. A conductive product is especially important when using the EMS microcurrent mode.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        How often should I use the device?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Follow the included product instructions and begin with shorter sessions. Consistent, gentle use is more important than applying excessive pressure or using the device for too long.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Can I use it on both my face and neck?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Yes. The curved massage head is designed to follow areas such as the neck, jawline, cheeks and forehead. Move it gently upward and avoid the front center of the throat.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Is the massage head waterproof?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          The massage head is described as waterproof for easy cleaning. Do not fully immerse the entire device or expose the charging area to water unless the official instructions specifically confirm full waterproof protection.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"faq-item\">\n      <button class=\"faq-question\" type=\"button\" onclick=\"toggleFaq(this)\">\n        Who should avoid EMS microcurrent mode?\n        <span class=\"faq-icon\">+</span>\n      </button>\n\n      <div class=\"faq-answer\">\n        <p>\n          Do not use EMS mode if you have an implanted electronic device, such as a pacemaker. People who are pregnant, have epilepsy or have a medical condition should ask a healthcare professional before use.\n        </p>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<script>\n  function toggleFaq(button) {\n    const faqSection = button.closest('.faq-section');\n    const answer = button.nextElementSibling;\n    const isOpen = button.classList.contains('open');\n\n    faqSection.querySelectorAll('.faq-question').forEach(function(question) {\n      question.classList.remove('open');\n    });\n\n    faqSection.querySelectorAll('.faq-answer').forEach(function(item) {\n      item.classList.remove('open');\n    });\n\n    if (!isOpen) {\n      button.classList.add('open');\n      answer.classList.add('open');\n    }\n  }\n</script>",
-        "full_width": false,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "17839826610030f7e5": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_k9NANP": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_k9NANP"
-      ],
       "settings": {
         "include_margins": true,
         "show_divider": false,
@@ -434,7 +409,6 @@
     "product-recommendations",
     "custom_liquid_L9DyJQ",
     "custom_liquid_KTjbVe",
-    "custom_liquid_i8k6n6",
     "17839826610030f7e5",
     "guarantees_4jiQMN",
     "recently-viewed-products"
