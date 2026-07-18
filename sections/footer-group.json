@@ -39,7 +39,7 @@
       "settings": {
         "show_divider": true,
         "newsletter_enable": true,
-        "newsletter_heading": "Exclusive benefits",
+        "newsletter_heading": "Exclusive Benefits",
         "newsletter_text": "<p>Enter your email to get early access to offers and new arrivals.</p>",
         "return_url": "",
         "enable_follow_on_shop": false,
