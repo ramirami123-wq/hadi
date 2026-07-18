@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "FREE DELIVERY FOR ORDERS OVER 50$",
+            "text": "Free Delivery Across Lebanon on Orders Over $50",
             "text_on_mobile": "",
             "text_size": 14,
             "link": ""
@@ -53,11 +53,11 @@
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_mobile": "",
-        "enable_dropdown_menu": false,
+        "enable_dropdown_menu": true,
         "show_line_separator": true,
         "uppercase_menu_items": true,
-        "cart_icon": "bag",
-        "icon_weight": "1.1",
+        "cart_icon": "cart",
+        "icon_weight": "1.7",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_sticky_header": false,
