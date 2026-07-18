@@ -185,7 +185,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/1773746678_phps9rukunemtjbfu7oDKc.jpg",
         "image_position": "center center",
         "layout": "image_first",
         "text_box_position": "middle",
