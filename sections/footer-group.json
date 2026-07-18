@@ -50,10 +50,10 @@
         "payment_enable": true,
         "show_policy": true,
         "copyright_text": "All rights reserved.",
-        "colors_text": "#ffffff",
-        "colors_heading": "#ffffff",
-        "colors_link": "#ffffff",
-        "colors_border": "#e6e6e6",
+        "colors_text": "#EFBF04",
+        "colors_heading": "#EFBF04",
+        "colors_link": "#EFBF04",
+        "colors_border": "#EFBF04",
         "colors_background": "#000000",
         "gradient_background": "linear-gradient(180deg, rgba(0, 0, 0, 1) 100%, rgba(247, 239, 231, 1) 100%)"
       }
