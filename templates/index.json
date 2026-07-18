@@ -9,6 +9,36 @@
  */
 {
   "sections": {
+    "featured_collection_EkwwB9": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "",
+        "products_to_show": 4,
+        "horizontal_scroll": false,
+        "show_view_all": true,
+        "show_divider": false,
+        "heading": "Featured collection",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "secondary_image_max": 1,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -141,59 +171,6 @@
         "gradient_background": "",
         "padding_top": 12,
         "padding_bottom": 12
-      }
-    },
-    "zeid_product_hero_nQeKAb": {
-      "type": "zeid-product-hero",
-      "custom_css": [],
-      "name": "ZB — Product Hero",
-      "settings": {
-        "product": "7-color-light-facial-mask-therapy",
-        "custom_image": "shopify://shop_images/1773746679_php8c8i2et13ttqfUuBkSR.jpg",
-        "eyebrow": "Staff Pick",
-        "headline": "7-Color LED Face Mask",
-        "subheadline": "Professional light therapy for clearer, firmer, healthier-looking skin — from the comfort of home.",
-        "badge": "★ Best Seller",
-        "bullet_1": "7 LED Light Modes – Each color targets different skin concerns including acne, wrinkles, redness, pigmentation, and dullness.",
-        "bullet_2": "Flexible & Comfortable Design – Soft silicone mask contours naturally to your face for a secure, relaxing fit.",
-        "bullet_3": "Non-Invasive & Pain-Free – Enjoy spa-quality light therapy with no needles, downtime, or harsh treatments.",
-        "review_quote": "I've noticed smoother skin, fewer breakouts, and a brighter complexion after just a few weeks. It's become my favorite skincare step.",
-        "review_author": "Sarah M",
-        "show_rating": true,
-        "rating_score": 5,
-        "rating_count": 8,
-        "cta_text": "Shop Now",
-        "trust_note": "Pay on delivery"
-      }
-    },
-    "zeid_before_after_JQ8phb": {
-      "type": "zeid-before-after",
-      "custom_css": [
-        "/* Button */a[class*=\"btn\"],button[class*=\"btn\"] {background: #111 !important; color: #d4af37 !important; border-color: #d4af37 !important;}",
-        "a[class*=\"btn\"]:hover,button[class*=\"btn\"]:hover {background: #d4af37 !important; color: #111 !important;}",
-        " /* Stars */[class*=\"star\"],[class*=\"rating\"] {color: #d4af37 !important;}",
-        "[class*=\"star\"] svg,[class*=\"rating\"] svg {fill: #d4af37 !important; color: #d4af37 !important;}"
-      ],
-      "name": "ZB — Before & After",
-      "settings": {
-        "product": "freckles-stamp",
-        "eyebrow": "See the difference",
-        "title": "",
-        "subtitle": "Real results from a real product.",
-        "bullet_1": "7 LED Light Colors – Targets wrinkles, acne, redness, uneven skin tone, and dull-looking skin.",
-        "bullet_2": "3 Massage Modes + Gentle Heat – Helps relax facial muscles while enhancing your skincare routine.",
-        "bullet_3": "Rechargeable & Easy to Use – Lightweight cordless design with up to 2 hours of use per charge.",
-        "show_rating": true,
-        "rating_score": 5,
-        "rating_count": 12,
-        "cta_label": "Buy Now",
-        "secondary_label": "View Details",
-        "secondary_link": "",
-        "trust_note": "Free delivery over $50 · Pay on delivery",
-        "image_before": "shopify://shop_images/i-want-a-womens-face-that-has-acne-and-stuff-but-keep-it-elegant-then-create-a-the-same-image-ut-clear-face-a-slide-show-will-move-from-left-to-right-to-show-acne-mask-results-and-fre.png",
-        "image_after": "shopify://shop_images/after_use.png",
-        "label_before": "Before",
-        "label_after": "After"
       }
     },
     "image_with_text_xwUfgU": {
@@ -550,11 +527,10 @@
     }
   },
   "order": [
+    "featured_collection_EkwwB9",
     "slideshow",
     "custom_liquid_inRyAt",
     "scrolling_promotion_8whPQf",
-    "zeid_product_hero_nQeKAb",
-    "zeid_before_after_JQ8phb",
     "image_with_text_xwUfgU",
     "images_with_text_Bqykin",
     "scrolling_promotion_A79amU",
