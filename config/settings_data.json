@@ -9,12 +9,12 @@
  */
 {
   "current": {
-    "colors_solid_button_labels": "#D4AF37",
+    "colors_solid_button_labels": "#d4af37",
     "colors_accent": "#111111",
     "colors_background": "#FFF7EA",
     "colors_text": "#333333",
-    "colors_heading": "#000000",
-    "colors_price": "#c9a84c",
+    "colors_heading": "#111111",
+    "colors_price": "#111111",
     "colors_sale_price": "#D4AF37",
     "colors_sale_badge_background": "#111111",
     "colors_outline_button_labels": "#D4AF37",
@@ -25,8 +25,8 @@
     "colors_keyboard_focus": "#D4AF37",
     "colors_shadow": "#D8C394",
     "colors_highlight": "#D4AF37",
-    "type_header_font": "archivo_black_n4",
-    "heading_scale": 125,
+    "type_header_font": "bodoni_moda_n4",
+    "heading_scale": 115,
     "heading_capitalize": true,
     "heading_center": true,
     "type_body_font": "twentieth_century_n4",
