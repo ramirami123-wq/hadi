@@ -155,6 +155,7 @@
       "type": "zeid-device-benfits",
       "name": "ZB — Device Benefits",
       "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jul_19_2026_01_42_56_AM.png",
         "image_caption": "Used daily for best results",
         "eyebrow": "Clinically inspired",
         "heading": "Professional results.At home.",
