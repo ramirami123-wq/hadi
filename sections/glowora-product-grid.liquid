@@ -1,9 +1,6 @@
-<!-- 
-  =============================================
-  SECTION: Premium Collection Grid
-  FOR: gloworatech.com
-  =============================================
--->
+<!-- =============================================
+     SECTION: Premium Collection Grid
+     ============================================= -->
 
 {% schema %}
 {
@@ -18,14 +15,14 @@
     {
       "type": "text",
       "id": "section_subtitle",
-      "label": "Subtitle (product count)",
-      "default": "12 products",
+      "label": "Subtitle (e.g. product count)",
+      "default": "10 products",
       "info": "You can use {{ collection.products_count }} for dynamic count"
     },
     {
       "type": "collection",
       "id": "collection",
-      "label": "Collection"
+      "label": "Choose collection"
     },
     {
       "type": "range",
@@ -55,19 +52,19 @@
     {
       "type": "checkbox",
       "id": "show_vendor",
-      "label": "Show vendor",
+      "label": "Show vendor name",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_compare_price",
-      "label": "Show compare at price",
+      "label": "Show compare‑at price",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_quick_actions",
-      "label": "Show quick actions (wishlist, etc)",
+      "label": "Show wishlist icon (heart)",
       "default": true
     }
   ],
@@ -80,9 +77,6 @@
 }
 {% endschema %}
 
-<!-- ============================================= -->
-<!-- STYLES -->
-<!-- ============================================= -->
 <style>
   .premium-collection-section {
     max-width: 1440px;
@@ -90,9 +84,8 @@
     padding: 2.5rem 2rem;
     background: #ffffff;
     border-radius: 40px;
-    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.08), 0 8px 24px -6px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 25px 60px -12px rgba(0,0,0,0.08), 0 8px 24px -6px rgba(0,0,0,0.02);
   }
-
   .collection-header {
     display: flex;
     flex-wrap: wrap;
@@ -100,7 +93,6 @@
     align-items: center;
     margin-bottom: 2.5rem;
   }
-
   .collection-header h2 {
     font-weight: 600;
     font-size: 1.9rem;
@@ -111,7 +103,6 @@
     gap: 10px;
     margin: 0;
   }
-
   .collection-header h2 small {
     font-weight: 400;
     font-size: 0.9rem;
@@ -119,15 +110,12 @@
     background: #f0f2f5;
     padding: 0.2rem 0.9rem;
     border-radius: 40px;
-    letter-spacing: 0.01em;
   }
-
   .view-options {
     display: flex;
     align-items: center;
     gap: 1.2rem;
   }
-
   .view-options .sort {
     background: #f0f2f5;
     padding: 0.55rem 1.2rem;
@@ -140,17 +128,8 @@
     gap: 8px;
     cursor: default;
   }
-
-  .view-options .sort i {
-    color: #5b6f87;
-    font-size: 0.8rem;
-  }
-
-  .view-options .grid-controls {
-    display: flex;
-    gap: 6px;
-  }
-
+  .view-options .sort i { color: #5b6f87; font-size: 0.8rem; }
+  .view-options .grid-controls { display: flex; gap: 6px; }
   .view-options .grid-controls span {
     display: inline-flex;
     align-items: center;
@@ -163,34 +142,29 @@
     font-size: 0.9rem;
     cursor: default;
   }
-
   .view-options .grid-controls span.active {
     background: #0b1a2e;
     color: white;
   }
-
   .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem 1.5rem;
   }
-
   .product-card {
     background: #ffffff;
     border-radius: 28px;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     border: 1px solid #f1f3f7;
     position: relative;
   }
-
   .product-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 24px 48px -12px rgba(0,0,0,0.12), 0 8px 16px -8px rgba(0,0,0,0.02);
     border-color: #e6eaef;
   }
-
   .product-image {
     position: relative;
     background: #fafbfc;
@@ -200,7 +174,6 @@
     justify-content: center;
     padding: 1.5rem;
   }
-
   .product-image img {
     width: 100%;
     height: 100%;
@@ -208,11 +181,7 @@
     display: block;
     transition: transform 0.3s ease;
   }
-
-  .product-card:hover .product-image img {
-    transform: scale(1.02);
-  }
-
+  .product-card:hover .product-image img { transform: scale(1.02); }
   .badge {
     position: absolute;
     top: 16px;
@@ -220,28 +189,16 @@
     color: white;
     font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
     text-transform: uppercase;
     padding: 0.35rem 0.9rem;
     border-radius: 40px;
-    background: rgba(11, 26, 46, 0.85);
+    background: rgba(11,26,46,0.85);
     box-shadow: 0 4px 8px rgba(0,0,0,0.03);
     z-index: 2;
   }
-
-  .badge.sold-out {
-    background: #d1574b;
-    box-shadow: 0 6px 12px rgba(209, 87, 75, 0.2);
-  }
-
-  .badge.sale {
-    background: #2b7a4b;
-  }
-
-  .product-info {
-    padding: 1.2rem 1.2rem 1.5rem;
-  }
-
+  .badge.sold-out { background: #d1574b; box-shadow: 0 6px 12px rgba(209,87,75,0.2); }
+  .badge.sale { background: #2b7a4b; }
+  .product-info { padding: 1.2rem 1.2rem 1.5rem; }
   .product-vendor {
     font-size: 0.7rem;
     font-weight: 500;
@@ -250,25 +207,15 @@
     color: #7a8a9e;
     margin-bottom: 0.3rem;
   }
-
   .product-title {
     font-weight: 600;
     font-size: 1.05rem;
     line-height: 1.4;
     color: #0b1a2e;
     margin-bottom: 0.4rem;
-    letter-spacing: -0.01em;
   }
-
-  .product-title a {
-    color: #0b1a2e;
-    text-decoration: none;
-  }
-
-  .product-title a:hover {
-    color: #1f304a;
-  }
-
+  .product-title a { color: #0b1a2e; text-decoration: none; }
+  .product-title a:hover { color: #1f304a; }
   .product-price {
     display: flex;
     align-items: baseline;
@@ -276,21 +223,17 @@
     margin-top: 0.2rem;
     flex-wrap: wrap;
   }
-
   .product-price .current {
     font-weight: 600;
     font-size: 1.2rem;
     color: #0b1a2e;
-    letter-spacing: -0.01em;
   }
-
   .product-price .compare {
     font-weight: 400;
     font-size: 0.9rem;
     color: #8d9eb0;
     text-decoration: line-through;
   }
-
   .product-price .unit {
     font-weight: 400;
     font-size: 0.75rem;
@@ -300,14 +243,12 @@
     padding: 0.2rem 0.8rem;
     border-radius: 40px;
   }
-
   .product-actions {
     margin-top: 1.2rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
   }
-
   .btn-add {
     background: #0b1a2e;
     border: none;
@@ -323,50 +264,32 @@
     flex: 1;
     cursor: pointer;
     transition: all 0.15s ease;
-    letter-spacing: 0.01em;
     border: 1px solid #0b1a2e;
-    text-decoration: none;
   }
-
-  .btn-add i {
-    font-size: 0.8rem;
-    opacity: 0.8;
-  }
-
+  .btn-add i { font-size: 0.8rem; opacity: 0.8; }
   .btn-add:hover {
     background: #1f304a;
     border-color: #1f304a;
-    box-shadow: 0 8px 16px -8px rgba(11, 26, 46, 0.2);
+    box-shadow: 0 8px 16px -8px rgba(11,26,46,0.2);
   }
-
   .btn-add.outline {
     background: transparent;
     color: #0b1a2e;
     border: 1px solid #d3dce6;
     flex: 0.4;
   }
-
-  .btn-add.outline i {
-    opacity: 0.6;
-  }
-
-  .btn-add.outline:hover {
-    background: #f4f7fc;
-    border-color: #bcc8d6;
-  }
-
+  .btn-add.outline i { opacity: 0.6; }
+  .btn-add.outline:hover { background: #f4f7fc; border-color: #bcc8d6; }
   .btn-add.sold-out-btn {
     background: #b2c0d0;
     border-color: #b2c0d0;
     cursor: default;
   }
-
   .btn-add.sold-out-btn:hover {
     background: #b2c0d0;
     border-color: #b2c0d0;
     box-shadow: none;
   }
-
   .quick-row {
     display: flex;
     gap: 12px;
@@ -377,18 +300,8 @@
     color: #5b6f87;
     flex-wrap: wrap;
   }
-
-  .quick-row span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .quick-row i {
-    opacity: 0.5;
-    font-size: 0.7rem;
-  }
-
+  .quick-row span { display: flex; align-items: center; gap: 6px; }
+  .quick-row i { opacity: 0.5; font-size: 0.7rem; }
   .section-footer {
     margin-top: 2.5rem;
     text-align: right;
@@ -396,78 +309,36 @@
     color: #9aabbe;
     border-top: 1px solid #eef2f7;
     padding-top: 1.8rem;
-    letter-spacing: 0.02em;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
   /* Responsive */
   @media (max-width: 1024px) {
-    .product-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
+    .product-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   }
-
   @media (max-width: 768px) {
-    .premium-collection-section {
-      padding: 1.5rem 1rem;
-    }
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-    .collection-header h2 {
-      font-size: 1.5rem;
-    }
-    .view-options .sort {
-      padding: 0.4rem 1rem;
-      font-size: 0.75rem;
-    }
+    .premium-collection-section { padding: 1.5rem 1rem; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .collection-header h2 { font-size: 1.5rem; }
+    .view-options .sort { padding: 0.4rem 1rem; font-size: 0.75rem; }
   }
-
   @media (max-width: 480px) {
-    .product-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .product-info {
-      padding: 0.8rem 0.8rem 1rem;
-    }
-    .product-title {
-      font-size: 0.9rem;
-    }
-    .btn-add {
-      font-size: 0.75rem;
-      padding: 0.5rem 0.6rem;
-    }
-    .collection-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
+    .product-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .product-info { padding: 0.8rem; }
+    .product-title { font-size: 0.9rem; }
+    .btn-add { font-size: 0.75rem; padding: 0.5rem 0.6rem; }
+    .collection-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
   }
-
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
     color: #6b7a8f;
   }
-
-  .empty-state i {
-    font-size: 3rem;
-    opacity: 0.3;
-    margin-bottom: 1rem;
-  }
+  .empty-state i { font-size: 3rem; opacity: 0.3; margin-bottom: 1rem; }
 </style>
 
-<!-- ============================================= -->
-<!-- SECTION HTML -->
-<!-- ============================================= -->
-
 <div class="premium-collection-section">
-  
   <!-- Header -->
   <div class="collection-header">
     <h2>
@@ -491,7 +362,6 @@
   {% if section.settings.collection != blank %}
     {% assign collection = collections[section.settings.collection] %}
     {% assign products = collection.products | sort: section.settings.sort_by %}
-    
     {% if products.size > 0 %}
       <div class="product-grid">
         {% for product in products limit: section.settings.products_limit %}
@@ -499,20 +369,18 @@
           {% assign compare_at_price = current_variant.compare_at_price %}
           {% assign price = current_variant.price %}
           {% assign available = current_variant.available %}
-          
+
           <div class="product-card">
-            <!-- Product Image -->
+            <!-- Image -->
             <div class="product-image">
               <a href="{{ product.url | within: collection }}">
                 {% if product.featured_image %}
-                  <img src="{{ product.featured_image | img_url: '600x600', crop: 'center' }}" 
-                       alt="{{ product.featured_image.alt | escape }}">
+                  <img src="{{ product.featured_image | img_url: '600x600', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}">
                 {% else %}
                   <img src="{{ 'product-1.png' | asset_url }}" alt="{{ product.title | escape }}">
                 {% endif %}
               </a>
-              
-              <!-- Badges - FIXED: use "unless available" instead of "if not available" -->
+              <!-- Badges: SOLD OUT, SALE, NEW, PRE-ORDER -->
               {% unless available %}
                 <div class="badge sold-out">Sold out</div>
               {% elsif compare_at_price > price %}
@@ -524,21 +392,20 @@
               {% endunless %}
             </div>
 
-            <!-- Product Info -->
+            <!-- Info -->
             <div class="product-info">
               {% if section.settings.show_vendor and product.vendor != blank %}
                 <div class="product-vendor">{{ product.vendor }}</div>
               {% endif %}
-              
               <div class="product-title">
                 <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
               </div>
-              
               <div class="product-price">
                 <span class="current">{{ price | money }}</span>
                 {% if section.settings.show_compare_price and compare_at_price > price %}
                   <span class="compare">{{ compare_at_price | money }}</span>
                 {% endif %}
+                <!-- optional unit from tags -->
                 {% if product.tags contains 'unit' %}
                   <span class="unit">{{ product.tags | where: 'unit' | first | replace: 'unit:', '' }}</span>
                 {% endif %}
@@ -556,7 +423,6 @@
                 {% else %}
                   <button class="btn-add sold-out-btn">Sold out</button>
                 {% endif %}
-                
                 {% if section.settings.show_quick_actions %}
                   <button class="btn-add outline" onclick="alert('Wishlist feature coming soon')">
                     <i class="far fa-heart"></i>
@@ -564,7 +430,7 @@
                 {% endif %}
               </div>
 
-              <!-- Quick Info Row -->
+              <!-- Quick info row -->
               <div class="quick-row">
                 <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.8</span>
                 {% if available %}
@@ -581,32 +447,24 @@
         {% endfor %}
       </div>
     {% else %}
-      <!-- Empty State -->
       <div class="empty-state">
         <i class="fas fa-box-open"></i>
         <h3>No products found</h3>
-        <p>Add products to this collection or select a different collection in the theme settings.</p>
+        <p>Add products to this collection or select a different one.</p>
       </div>
     {% endif %}
   {% else %}
-    <!-- No collection selected -->
     <div class="empty-state">
       <i class="fas fa-cog"></i>
       <h3>Select a collection</h3>
-      <p>Go to the theme customizer and select a collection for this section.</p>
+      <p>Go to the theme customizer and choose a collection for this section.</p>
     </div>
   {% endif %}
 
   <!-- Footer -->
   <div class="section-footer">
-    <span>
-      <i class="fas fa-crown" style="opacity: 0.3; margin-right: 6px;"></i>
-      gloworatech.com · premium collection
-    </span>
-    <span>
-      <i class="fas fa-arrow-right" style="opacity: 0.3;"></i>
-      {{ section.settings.products_limit }} products shown
-    </span>
+    <span><i class="fas fa-crown" style="opacity: 0.3; margin-right: 6px;"></i> gloworatech.com · premium collection</span>
+    <span><i class="fas fa-arrow-right" style="opacity: 0.3;"></i> {{ section.settings.products_limit }} products shown</span>
   </div>
 </div>
 
