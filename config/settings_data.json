@@ -85,7 +85,7 @@
     "social_tiktok_link": "",
     "favicon": "shopify://shop_images/Logo_1.png",
     "gift_card_logo_height": 70,
-    "disable_collection_portion": false,
+    "disable_collection_portion": true,
     "sale_badge_basis": "auto",
     "sections": {
       "main-password-header": {
