@@ -13,9 +13,9 @@
       "type": "main-collection-banner",
       "custom_css": [],
       "settings": {
-        "heading_size": "h1",
+        "heading_size": "h2",
         "show_description": true,
-        "show_image": false,
+        "show_image": true,
         "apply_overlay": true,
         "image_position": "center center",
         "image_ratio": "550px",
