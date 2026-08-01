@@ -1,360 +1,588 @@
-<section class="glowora-grid-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GloworaTech · Premium collection</title>
+  <!-- Font & icons (clean, premium) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <div class="glowora-wrapper">
+    body {
+      background: #f6f7f9;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-    <div class="glowora-title">
-      <h2>{{ section.settings.title }}</h2>
-      <p>{{ section.settings.subtitle }}</p>
+    .shopify-preview {
+      max-width: 1440px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.08), 0 8px 24px -6px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    /* header / toolbar */
+    .collection-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .collection-header h1 {
+      font-weight: 600;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      color: #0b1a2e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .collection-header h1 small {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #6b7a8f;
+      background: #f0f2f5;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    .view-options {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .view-options .sort {
+      background: #f0f2f5;
+      padding: 0.55rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1f2a3f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+      transition: background 0.15s;
+    }
+
+    .view-options .sort i {
+      color: #5b6f87;
+      font-size: 0.8rem;
+    }
+
+    .view-options .grid-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .view-options .grid-controls span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: #f0f2f5;
+      border-radius: 12px;
+      color: #1f2a3f;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: 0.1s;
+    }
+
+    .view-options .grid-controls span.active {
+      background: #0b1a2e;
+      color: white;
+    }
+
+    /* grid — premium card layout */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem 1.5rem;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f1f3f7;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.02);
+      border-color: #e6eaef;
+    }
+
+    .product-image {
+      position: relative;
+      background: #fafbfc;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.02);
+    }
+
+    /* badge sold out */
+    .badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #0b1a2e;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      background: rgba(11, 26, 46, 0.85);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+    }
+
+    .badge.sold-out {
+      background: #d1574b;
+      color: white;
+      box-shadow: 0 6px 12px rgba(209, 87, 75, 0.2);
+    }
+
+    .product-info {
+      padding: 1.2rem 1.2rem 1.5rem;
+    }
+
+    .product-vendor {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a8a9e;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      color: #0b1a2e;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-top: 0.2rem;
+    }
+
+    .product-price .current {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #0b1a2e;
+      letter-spacing: -0.01em;
+    }
+
+    .product-price .compare {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #8d9eb0;
+      text-decoration: line-through;
+    }
+
+    .product-price .unit {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: #6b7a8f;
+      margin-left: auto;
+      background: #f0f4fa;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+    }
+
+    .product-actions {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .btn-add {
+      background: #0b1a2e;
+      border: none;
+      color: white;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.65rem 1rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      cursor: default;
+      transition: all 0.15s ease;
+      letter-spacing: 0.01em;
+      border: 1px solid #0b1a2e;
+    }
+
+    .btn-add i {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .btn-add:hover {
+      background: #1f304a;
+      border-color: #1f304a;
+      box-shadow: 0 8px 16px -8px rgba(11, 26, 46, 0.2);
+    }
+
+    .btn-add.outline {
+      background: transparent;
+      color: #0b1a2e;
+      border: 1px solid #d3dce6;
+      flex: 0.4;
+    }
+
+    .btn-add.outline i {
+      opacity: 0.6;
+    }
+
+    .btn-add.outline:hover {
+      background: #f4f7fc;
+      border-color: #bcc8d6;
+    }
+
+    /* quick shop row */
+    .quick-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 0.9rem;
+      border-top: 1px solid #eef2f7;
+      padding-top: 0.9rem;
+      font-size: 0.75rem;
+      color: #5b6f87;
+    }
+
+    .quick-row span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quick-row i {
+      opacity: 0.5;
+      font-size: 0.7rem;
+    }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .shopify-preview {
+        padding: 1.5rem 1rem;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+      .collection-header h1 {
+        font-size: 1.5rem;
+      }
+      .view-options .sort {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .product-info {
+        padding: 0.8rem 0.8rem 1rem;
+      }
+      .product-title {
+        font-size: 0.9rem;
+      }
+      .btn-add {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
+      }
+    }
+
+    /* dummy subtle highlight for gloworatech */
+    .glowora-brand {
+      transition: all 0.2s;
+    }
+  </style>
+</head>
+<body>
+<div class="shopify-preview">
+
+  <!-- collection header -->
+  <div class="collection-header">
+    <h1>
+      <i class="fas fa-bolt" style="color: #0b1a2e; font-size: 1.6rem; opacity: 0.9;"></i> 
+      Essential collection
+      <small>12 products</small>
+    </h1>
+    <div class="view-options">
+      <div class="sort">
+        <i class="fas fa-sliders-h"></i> Sort by
+        <i class="fas fa-chevron-down" style="font-size: 0.6rem; opacity: 0.5; margin-left: 4px;"></i>
+      </div>
+      <div class="grid-controls">
+        <span class="active"><i class="fas fa-th"></i></span>
+        <span><i class="fas fa-list-ul"></i></span>
+      </div>
     </div>
-
-
-    <div class="glowora-products">
-
-      {% assign collection = collections[section.settings.collection] %}
-
-
-      {% for product in collection.products limit: section.settings.products_to_show %}
-
-        <div class="glowora-product-card">
-
-
-          {% if product.compare_at_price > product.price %}
-            <span class="glowora-sale">
-              SALE
-            </span>
-          {% endif %}
-
-
-          <a href="{{ product.url }}" class="glowora-product-image">
-
-            <img
-            src="{{ product.featured_image | image_url: width:700 }}"
-            alt="{{ product.title }}"
-            loading="lazy">
-
-          </a>
-
-
-
-          <div class="glowora-product-info">
-
-
-            <div class="glowora-rating">
-              ★★★★★
-            </div>
-
-
-            <h3>
-              <a href="{{ product.url }}">
-                {{ product.title }}
-              </a>
-            </h3>
-
-
-
-            <div class="glowora-price">
-
-              {% if product.compare_at_price > product.price %}
-
-                <span class="old">
-                  {{ product.compare_at_price | money }}
-                </span>
-
-              {% endif %}
-
-
-              <span>
-                {{ product.price | money }}
-              </span>
-
-            </div>
-
-
-
-            <form method="post" action="/cart/add">
-
-              <input 
-              type="hidden"
-              name="id"
-              value="{{ product.selected_or_first_available_variant.id }}">
-
-
-              <button type="submit">
-                ADD TO CART
-              </button>
-
-            </form>
-
-
-          </div>
-
-
-        </div>
-
-      {% endfor %}
-
-
-    </div>
-
   </div>
 
-</section>
-
-
-
-
-<style>
-
-.glowora-grid-section{
-padding:70px 20px;
-background:#fbf8f3;
-}
-
-
-.glowora-wrapper{
-max-width:1400px;
-margin:auto;
-}
-
-
-
-.glowora-title{
-text-align:center;
-margin-bottom:45px;
-}
-
-
-.glowora-title h2{
-font-size:38px;
-font-weight:600;
-color:#222;
-}
-
-
-.glowora-title p{
-color:#777;
-font-size:16px;
-}
-
-
-
-.glowora-products{
-
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-
-}
-
-
-
-.glowora-product-card{
-
-background:white;
-border-radius:25px;
-overflow:hidden;
-padding:15px;
-position:relative;
-transition:.3s;
-
-}
-
-
-
-.glowora-product-card:hover{
-
-transform:translateY(-7px);
-box-shadow:0 20px 40px rgba(0,0,0,.08);
-
-}
-
-
-
-.glowora-sale{
-
-position:absolute;
-top:25px;
-left:25px;
-background:#b99a67;
-color:white;
-padding:7px 15px;
-border-radius:30px;
-font-size:12px;
-z-index:2;
-
-}
-
-
-
-.glowora-product-image{
-
-display:block;
-overflow:hidden;
-border-radius:20px;
-
-}
-
-
-.glowora-product-image img{
-
-width:100%;
-transition:.4s;
-
-}
-
-
-
-.glowora-product-card:hover img{
-
-transform:scale(1.05);
-
-}
-
-
-
-.glowora-product-info{
-
-padding:15px 5px;
-
-}
-
-
-
-.glowora-rating{
-
-color:#c7a15b;
-font-size:14px;
-
-}
-
-
-
-.glowora-product-info h3{
-
-font-size:17px;
-font-weight:500;
-margin:10px 0;
-}
-
-
-.glowora-product-info h3 a{
-
-text-decoration:none;
-color:#222;
-
-}
-
-
-
-.glowora-price{
-
-font-size:18px;
-font-weight:600;
-
-}
-
-
-
-.old{
-
-color:#999;
-text-decoration:line-through;
-margin-right:8px;
-font-size:15px;
-
-}
-
-
-
-.glowora-product-info button{
-
-width:100%;
-margin-top:18px;
-padding:14px;
-border-radius:50px;
-border:none;
-background:#222;
-color:white;
-cursor:pointer;
-font-size:14px;
-letter-spacing:.5px;
-
-}
-
-
-.glowora-product-info button:hover{
-
-background:#b99a67;
-
-}
-
-
-
-@media(max-width:900px){
-
-.glowora-products{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-
-
-@media(max-width:550px){
-
-.glowora-products{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
-
-
-
-{% schema %}
-{
-"name":"Glowora Grid",
-"settings":[
-
-{
-"type":"text",
-"id":"title",
-"label":"Title",
-"default":"Shop Our Best Sellers"
-},
-
-{
-"type":"text",
-"id":"subtitle",
-"label":"Subtitle",
-"default":"Advanced beauty technology for your daily routine"
-},
-
-{
-"type":"collection",
-"id":"collection",
-"label":"Choose Collection"
-},
-
-{
-"type":"range",
-"id":"products_to_show",
-"label":"Products to display",
-"min":4,
-"max":16,
-"step":4,
-"default":8
-}
-
-],
-
-"presets":[
-{
-"name":"Glowora Grid"
-}
-]
-
-}
-{% endschema %}
+  <!-- product grid -->
+  <div class="product-grid">
+
+    <!-- card 1 – premium -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-1.png?v=1614723224" alt="Product" style="background: #f0f4fa; padding: 1.2rem;">
+        <!-- no badge -->
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Aether wireless earbuds</div>
+        <div class="product-price">
+          <span class="current">$149</span>
+          <span class="compare">$199</span>
+          <span class="unit">+ free case</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Add to cart</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.9</span>
+          <span><i class="fas fa-clock"></i> 2 left</span>
+          <span><i class="fas fa-truck"></i> free ship</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 2 – sold out badge -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-2.png?v=1614723224" alt="Product" style="background: #f4f6fa; padding: 1.2rem;">
+        <div class="badge sold-out">sold out</div>
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Edge laptop sleeve · carbon</div>
+        <div class="product-price">
+          <span class="current">$89</span>
+          <span class="unit">exclusive</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add" style="background: #b2c0d0; border-color: #b2c0d0; cursor: default;">Notify me</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.8</span>
+          <span><i class="fas fa-hourglass-end"></i> sold out</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 3 – premium variant -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-3.png?v=1614723224" alt="Product" style="background: #f2f5fa; padding: 1.2rem;">
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Orbit desk mat · merino</div>
+        <div class="product-price">
+          <span class="current">$59</span>
+          <span class="compare">$79</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Add to cart</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 5.0</span>
+          <span><i class="fas fa-check-circle" style="color: #2b7a4b;"></i> in stock</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 4 – no vendor, emphasis -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-4.png?v=1614723224" alt="Product" style="background: #edf2f8; padding: 1.2rem;">
+        <div class="badge" style="background: #0b1a2e;">new</div>
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech · pro</div>
+        <div class="product-title">Lumina desk lamp</div>
+        <div class="product-price">
+          <span class="current">$219</span>
+          <span class="unit">smart</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Add to cart</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.7</span>
+          <span><i class="fas fa-bolt"></i> 6 left</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 5 – clean -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-5.png?v=1614723224" alt="Product" style="background: #f5f7fc; padding: 1.2rem;">
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Pulse charging station</div>
+        <div class="product-price">
+          <span class="current">$79</span>
+          <span class="compare">$99</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Add to cart</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.6</span>
+          <span><i class="fas fa-shipping-fast"></i> express</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 6 – sold out with price -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-6.png?v=1614723224" alt="Product" style="background: #eef3fa; padding: 1.2rem;">
+        <div class="badge sold-out">sold out</div>
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Zen wireless charger</div>
+        <div class="product-price">
+          <span class="current">$45</span>
+          <span class="unit">discontinued</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add" style="background: #b2c0d0; border-color: #b2c0d0; cursor: default;">out of stock</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.4</span>
+          <span><i class="fas fa-times-circle" style="color: #b0bcca;"></i> sold</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 7 – extra -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-7.png?v=1614723224" alt="Product" style="background: #f3f6fc; padding: 1.2rem;">
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Hexa cable kit</div>
+        <div class="product-price">
+          <span class="current">$39</span>
+          <span class="unit">set of 3</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Add to cart</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.9</span>
+          <span><i class="fas fa-check-circle" style="color: #2b7a4b;"></i> in stock</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- card 8 – premium last -->
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-8.png?v=1614723224" alt="Product" style="background: #f2f6fd; padding: 1.2rem;">
+        <div class="badge" style="background: #1d3b5c;">pre-order</div>
+      </div>
+      <div class="product-info">
+        <div class="product-vendor">GloworaTech</div>
+        <div class="product-title">Aura soundbar mini</div>
+        <div class="product-price">
+          <span class="current">$179</span>
+          <span class="compare">$229</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add"><i class="fas fa-plus"></i> Pre-order</button>
+          <button class="btn-add outline"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="quick-row">
+          <span><i class="fas fa-star" style="color: #f5b342;"></i> 4.8</span>
+          <span><i class="fas fa-clock"></i> pre-order</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- subtle footer note (for gloworatech) -->
+  <div style="margin-top: 2.5rem; text-align: right; font-size: 0.75rem; color: #9aabbe; border-top: 1px solid #eef2f7; padding-top: 1.8rem; letter-spacing: 0.02em; display: flex; justify-content: space-between; align-items: center;">
+    <span><i class="fas fa-crown" style="opacity: 0.3; margin-right: 6px;"></i> gloworatech.com · premium collection</span>
+    <span><i class="fas fa-arrow-right" style="opacity: 0.3;"></i> 8 products shown</span>
+  </div>
+</div>
+
+<!-- small interactive demo note: all buttons are static (premium look) -->
+</body>
+</html>
