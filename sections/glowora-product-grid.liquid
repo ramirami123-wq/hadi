@@ -1,50 +1,67 @@
-<section class="glowora-products">
-  <div class="glowora-container">
+<section class="glowora-grid-section">
 
-    <div class="glowora-header">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
+  <div class="glowora-wrapper">
+
+    <div class="glowora-title">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.subtitle }}</p>
     </div>
 
-    <div class="glowora-grid">
 
-      {% for product in collections[section.settings.collection].products limit: section.settings.products_limit %}
+    <div class="glowora-products">
 
-        <div class="glowora-card">
+      {% assign collection = collections[section.settings.collection] %}
+
+
+      {% for product in collection.products limit: section.settings.products_to_show %}
+
+        <div class="glowora-product-card">
+
 
           {% if product.compare_at_price > product.price %}
-            <div class="glowora-badge">
+            <span class="glowora-sale">
               SALE
-            </div>
+            </span>
           {% endif %}
 
-          <a href="{{ product.url }}" class="glowora-image">
-            <img 
-              src="{{ product.featured_image | image_url: width:600 }}"
-              loading="lazy"
-              alt="{{ product.title }}">
+
+          <a href="{{ product.url }}" class="glowora-product-image">
+
+            <img
+            src="{{ product.featured_image | image_url: width:700 }}"
+            alt="{{ product.title }}"
+            loading="lazy">
+
           </a>
 
 
-          <div class="glowora-info">
 
-            <div class="glowora-stars">
+          <div class="glowora-product-info">
+
+
+            <div class="glowora-rating">
               ★★★★★
             </div>
 
 
             <h3>
-              {{ product.title }}
+              <a href="{{ product.url }}">
+                {{ product.title }}
+              </a>
             </h3>
+
 
 
             <div class="glowora-price">
 
               {% if product.compare_at_price > product.price %}
-                <span class="glowora-old-price">
+
+                <span class="old">
                   {{ product.compare_at_price | money }}
                 </span>
+
               {% endif %}
+
 
               <span>
                 {{ product.price | money }}
@@ -53,15 +70,17 @@
             </div>
 
 
+
             <form method="post" action="/cart/add">
 
               <input 
-                type="hidden"
-                name="id"
-                value="{{ product.selected_or_first_available_variant.id }}">
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}">
 
-              <button class="glowora-button">
-                Add To Cart
+
+              <button type="submit">
+                ADD TO CART
               </button>
 
             </form>
@@ -69,230 +88,223 @@
 
           </div>
 
+
         </div>
 
       {% endfor %}
 
+
     </div>
 
   </div>
+
 </section>
+
 
 
 
 <style>
 
-.glowora-products {
-  padding: 80px 20px;
-  background: #faf8f5;
+.glowora-grid-section{
+padding:70px 20px;
+background:#fbf8f3;
 }
 
 
-.glowora-container {
-  max-width: 1300px;
-  margin: auto;
-}
-
-
-.glowora-header {
-  text-align: center;
-  margin-bottom: 45px;
-}
-
-
-.glowora-header h2 {
-  font-size: 38px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  color: #1d1d1d;
-  margin-bottom: 12px;
-}
-
-
-.glowora-header p {
-  color: #777;
-  font-size: 16px;
+.glowora-wrapper{
+max-width:1400px;
+margin:auto;
 }
 
 
 
-.glowora-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 25px;
+.glowora-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+
+.glowora-title h2{
+font-size:38px;
+font-weight:600;
+color:#222;
+}
+
+
+.glowora-title p{
+color:#777;
+font-size:16px;
 }
 
 
 
-.glowora-card {
+.glowora-products{
 
-  background: white;
-  border-radius: 24px;
-  padding: 18px;
-  position: relative;
-  transition: all .35s ease;
-  border: 1px solid #eee;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
 
 }
 
 
 
-.glowora-card:hover {
+.glowora-product-card{
 
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0,0,0,.08);
-
-}
-
-
-
-.glowora-badge {
-
-  position:absolute;
-  top:28px;
-  left:28px;
-  background:#b89b6a;
-  color:white;
-  padding:7px 15px;
-  border-radius:30px;
-  font-size:12px;
-  letter-spacing:1px;
-  z-index:2;
+background:white;
+border-radius:25px;
+overflow:hidden;
+padding:15px;
+position:relative;
+transition:.3s;
 
 }
 
 
 
-.glowora-image {
+.glowora-product-card:hover{
 
-  display:block;
-  overflow:hidden;
-  border-radius:20px;
-
-}
-
-
-
-.glowora-image img {
-
-  width:100%;
-  display:block;
-  transition:.4s ease;
+transform:translateY(-7px);
+box-shadow:0 20px 40px rgba(0,0,0,.08);
 
 }
 
 
 
-.glowora-card:hover img {
+.glowora-sale{
 
-  transform:scale(1.06);
-
-}
-
-
-
-.glowora-info {
-
-  padding:18px 5px 5px;
-
-}
-
-
-
-.glowora-stars {
-
-  color:#c9a96e;
-  font-size:14px;
-  margin-bottom:8px;
+position:absolute;
+top:25px;
+left:25px;
+background:#b99a67;
+color:white;
+padding:7px 15px;
+border-radius:30px;
+font-size:12px;
+z-index:2;
 
 }
 
 
 
-.glowora-info h3 {
+.glowora-product-image{
 
-  font-size:17px;
-  font-weight:500;
-  line-height:1.4;
-  color:#222;
-  margin:8px 0 12px;
+display:block;
+overflow:hidden;
+border-radius:20px;
+
+}
+
+
+.glowora-product-image img{
+
+width:100%;
+transition:.4s;
 
 }
 
 
 
-.glowora-price {
+.glowora-product-card:hover img{
 
-  font-size:18px;
-  font-weight:600;
-  color:#111;
+transform:scale(1.05);
 
 }
 
 
 
-.glowora-old-price {
+.glowora-product-info{
 
-  color:#999;
-  text-decoration:line-through;
-  margin-right:8px;
-  font-size:15px;
+padding:15px 5px;
 
 }
 
 
 
-.glowora-button {
+.glowora-rating{
 
-  width:100%;
-  margin-top:18px;
-  padding:14px;
-  border:none;
-  border-radius:50px;
-  background:#1d1d1d;
-  color:white;
-  font-size:15px;
-  cursor:pointer;
-  transition:.3s ease;
+color:#c7a15b;
+font-size:14px;
 
 }
 
 
 
-.glowora-button:hover {
+.glowora-product-info h3{
 
-  background:#b89b6a;
+font-size:17px;
+font-weight:500;
+margin:10px 0;
+}
+
+
+.glowora-product-info h3 a{
+
+text-decoration:none;
+color:#222;
 
 }
 
 
 
+.glowora-price{
 
-@media(max-width:1000px){
-
-  .glowora-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+font-size:18px;
+font-weight:600;
 
 }
 
 
 
-@media(max-width:600px){
+.old{
 
-  .glowora-products{
-    padding:50px 15px;
-  }
+color:#999;
+text-decoration:line-through;
+margin-right:8px;
+font-size:15px;
 
-
-  .glowora-grid{
-    grid-template-columns:1fr;
-  }
+}
 
 
-  .glowora-header h2{
-    font-size:30px;
-  }
+
+.glowora-product-info button{
+
+width:100%;
+margin-top:18px;
+padding:14px;
+border-radius:50px;
+border:none;
+background:#222;
+color:white;
+cursor:pointer;
+font-size:14px;
+letter-spacing:.5px;
+
+}
+
+
+.glowora-product-info button:hover{
+
+background:#b99a67;
+
+}
+
+
+
+@media(max-width:900px){
+
+.glowora-products{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+
+@media(max-width:550px){
+
+.glowora-products{
+grid-template-columns:1fr;
+}
 
 }
 
@@ -300,47 +312,49 @@
 
 
 
+
 {% schema %}
 {
-  "name": "Glowora Products",
-  "settings": [
+"name":"Glowora Grid",
+"settings":[
 
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Discover Our Best Sellers"
-    },
+{
+"type":"text",
+"id":"title",
+"label":"Title",
+"default":"Shop Our Best Sellers"
+},
 
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Advanced beauty technology designed for your everyday glow"
-    },
+{
+"type":"text",
+"id":"subtitle",
+"label":"Subtitle",
+"default":"Advanced beauty technology for your daily routine"
+},
 
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
+{
+"type":"collection",
+"id":"collection",
+"label":"Choose Collection"
+},
 
-    {
-      "type": "range",
-      "id": "products_limit",
-      "label": "Products to show",
-      "min": 4,
-      "max": 12,
-      "step": 2,
-      "default": 8
-    }
+{
+"type":"range",
+"id":"products_to_show",
+"label":"Products to display",
+"min":4,
+"max":16,
+"step":4,
+"default":8
+}
 
-  ],
+],
 
-  "presets": [
-    {
-      "name": "Glowora Products"
-    }
-  ]
+"presets":[
+{
+"name":"Glowora Grid"
+}
+]
+
 }
 {% endschema %}
